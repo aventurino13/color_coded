@@ -1,19 +1,19 @@
 myApp.service('postService',['$http', function($http){
 
-  var service = this;
 
-
-service.addItem = function(itemToSend){
+  this.addItem = function(itemToSend){
     console.log('in add items!');
 
-    console.log('this is the itemTOsend', itemToSend);
+    console.log('this is the itemToSend', itemToSend);
     return $http({
       method:'POST',
-      url:'/user/AddItem',
+      url:'/Items',
       data: itemToSend,
-    }).then(function(res) {
-      console.log('get after add in controller', res);
+    }).then(function( response ) {
+      console.log('get after add in controller', response );
+      return response;
       // location.reload();
     });
   };
+
 }]);

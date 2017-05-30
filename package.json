@@ -18,6 +18,7 @@
     "bootstrap": "^3.3.7",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
+    "filestack-js": "^0.6.3",
     "mongoose": "^4.10.4",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",

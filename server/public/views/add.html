@@ -1,9 +1,17 @@
 
+<script src="https://static.filestackapi.com/v3/filestack-0.6.2.js"></script>
+
+
+
+<div ng-controller = "UserController as uc" ng-init = 'uc.getItems(favs)'>
 <div class="addForm">
+<input type="button" ng-model='uc.imgUpld' value="Upload" ng-click="uc.showPicker()" />
+
   <input ng-model="uc.imgURL" type="text" name="alias" value="" placeholder="add img url...">
+
   <input ng-model="uc.title" type="text" name="alias" value="" placeholder="add title...">
   <input ng-model="uc.linkURL" type="text" name="alias" value="" placeholder="add link url...">
-  <select name="type">
+  <select ng-model="uc.type" name="type">
     <option value="arch">Architecture</option>
     <option value="dsgn">Design</option>
     <option value="art">Art</option>
@@ -13,10 +21,11 @@
   <input ng-model="uc.tag3" type="text" name="alias" value="" placeholder="add tag...">
   <input ng-model="uc.tag4" type="text" name="alias" value="" placeholder="add tag...">
   <input ng-model="uc.tag5" type="text" name="alias" value="" placeholder="add tag...">
-  <select name="fav">
+  <select ng-model="uc.fav" name="fav">
     <option value=True>YES</option>
     <option value=False>NO</option>
   </select>
 
   <button ng-click="uc.addItem()" class='btn btn-success' type="button" name="button">Add New Img</button>
+</div>
 </div>

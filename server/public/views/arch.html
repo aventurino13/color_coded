@@ -1,0 +1,15 @@
+<h1>Architecture</h1>
+
+<div ng-controller = "UserController as x" ng-init = 'x.getItems(arch)'>
+  <div class='container row'>
+  <div ng-repeat='thing in x.result' class='col-sm-4'>
+    <div class = "card" class='col-sm-4'>
+      <img src= "{{thing.imgURL}}"/>
+      <h2>{{ thing.title }}</h3>
+      <a href="{{thing.linkURL}}"></a>
+      <h4>{{ thing.tag1 }} {{ thing.tag2 }} {{ thing.tag3 }} {{ thing.tag4 }} {{ thing.tag5 }}</h4>
+      <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
+    </div>
+  </div>
+</div>
+</div>

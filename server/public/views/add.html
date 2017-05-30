@@ -1,0 +1,22 @@
+
+<div class="addForm">
+  <input ng-model="uc.imgURL" type="text" name="alias" value="" placeholder="add img url...">
+  <input ng-model="uc.title" type="text" name="alias" value="" placeholder="add title...">
+  <input ng-model="uc.linkURL" type="text" name="alias" value="" placeholder="add link url...">
+  <select name="type">
+    <option value="arch">Architecture</option>
+    <option value="dsgn">Design</option>
+    <option value="art">Art</option>
+  </select>
+  <input ng-model="uc.tag1" type="text" name="alias" value="" placeholder="add tag...">
+  <input ng-model="uc.tag2" type="text" name="alias" value="" placeholder="add tag...">
+  <input ng-model="uc.tag3" type="text" name="alias" value="" placeholder="add tag...">
+  <input ng-model="uc.tag4" type="text" name="alias" value="" placeholder="add tag...">
+  <input ng-model="uc.tag5" type="text" name="alias" value="" placeholder="add tag...">
+  <select name="fav">
+    <option value=True>YES</option>
+    <option value=False>NO</option>
+  </select>
+
+  <button ng-click="uc.addItem()" class='btn btn-success' type="button" name="button">Add New Img</button>
+</div>

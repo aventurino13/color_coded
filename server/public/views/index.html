@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color_Coded</title>
+  <link rel="stylesheet" href="/vendors/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Barrio|Black+Ops+One|Creepster|Ewert|Monoton" rel="stylesheet">
+  <script type="text/javascript" src="/vendors/angular.min.js"></script>
+  <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
+  <script type="text/javascript" src="/scripts/clientapp.js"></script>
+  <script src="/scripts/services/getService.js" charset="utf-8"></script>
+  <script src="/scripts/services/postService.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/scripts/controllers/login.controller.js"></script>
+  <script type="text/javascript" src="/scripts/controllers/user.controller.js"></script>
+
+
+  <base href="/" /> 
+</head>
+
+<body ng-app="myApp">
+  <header ng-include="'/views/templates/header.html'"></header>
+
+  <main ng-view></main>
+
+
+</body>
+</html>

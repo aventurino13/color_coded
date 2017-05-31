@@ -1,24 +1,44 @@
 myApp.service('getService',['$http', function($http){
 
-  //get items of specific type
-  this.getItems = function(type){
-    return $http({
-      method:'GET',
-      url:'/'+ type
-    }).then(function(response) {
-      console.log('get type from service', response);
-      return response.data;
-    });
-  }; //end getItems function
+  this.rmItem = function (id){
+  return $http({
+    method:'GET',
+    url:'/remove',
+    params: {
+      _id: id,
+    }
+  }).then(function(response) {
+    console.log('get all from service', response);
+    return response.data;
+  });
+}; //end rmItem function
 
-  this.getFavs = function(){
-    return $http({
-      method:'GET',
-      url:'/favs'
-    }).then(function(response) {
-      console.log('get favs from service', response);
-      return response.data;
-    });
-  }; //end getItems function
+this.userItems = function(userName, itemIype){
+  return $http({
+    method:'GET',
+    url:'/user',
+    params: {
+      user: userName,
+      type: itemType,
+    }
+  }).then(function(response) {
+    console.log('get arch from service', response);
+    return response.data;
+  });
+}; //end getItems function
+
+this.getItems = function(itemType){
+  return $http({
+    method:'GET',
+    url:'/Items',
+    params: {
+      type: itemType,
+    }
+  }).then(function(response) {
+    console.log('get type from service', response);
+    return response.data;
+  });
+}; //end getItems function
+  //get items of specific type
 
 }]); //end getService

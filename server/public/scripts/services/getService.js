@@ -1,11 +1,11 @@
 myApp.service('getService',['$http', function($http){
 
-  this.rmItem = function (id){
+  this.rmItem = function (itemId){
   return $http({
     method:'GET',
     url:'/remove',
     params: {
-      _id: id,
+      id: itemId,
     }
   }).then(function(response) {
     console.log('get all from service', response);
@@ -13,16 +13,15 @@ myApp.service('getService',['$http', function($http){
   });
 }; //end rmItem function
 
-this.userItems = function(userName, itemIype){
+this.userItems = function(userName){
   return $http({
     method:'GET',
     url:'/user',
     params: {
       user: userName,
-      type: itemType,
     }
   }).then(function(response) {
-    console.log('get arch from service', response);
+    console.log('get user from service', response);
     return response.data;
   });
 }; //end getItems function
@@ -35,7 +34,7 @@ this.getItems = function(itemType){
       type: itemType,
     }
   }).then(function(response) {
-    console.log('get type from service', response);
+    console.log('get items from service', response);
     return response.data;
   });
 }; //end getItems function

@@ -54,18 +54,9 @@ app.get('/Items', function(req, res) {
   }
 }); // end GET Items route
 
-app.get('/Items', function(req, res) {
+app.get('/user', function(req, res) {
   console.log(req.query.user);
-  console.log(req.query.type);
-  if (req.query.type !== undefined) {
-    items.find({
-      user: req.query.user,
-      type: req.query.type
-    }).then(function(data) {
-      console.log(data);
-      res.send(data);
-    });
-  } else {
+  if (req.query.user !== undefined) {
     items.find({
       user: req.query.user,
     }).then(function(data) {

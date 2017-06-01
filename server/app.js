@@ -33,7 +33,7 @@ app.get('/remove', function(req, res) {
     _id: req.query.id
   }).then(function(data) {
     console.log(data);
-    res.send(data);
+    res.sendStatus(200);
   });
 }); //end remove Items GET route
 

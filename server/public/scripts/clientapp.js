@@ -83,8 +83,9 @@ myApp.controller('UserController', function(postService, getService) {
           vm.deleteItem = function (id){
             getService.rmItem(id).then(function(data){
               console.log('in .then delte return', data);
+                vm.getUserItems();
             });
-            vm.getUserItems(vm.userName);
+        
           };
 
 });

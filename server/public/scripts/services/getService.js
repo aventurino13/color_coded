@@ -9,7 +9,7 @@ myApp.service('getService',['$http', function($http){
     }
   }).then(function(response) {
     console.log('get all from service', response);
-    return response.data;
+    return response;
   });
 }; //end rmItem function
 

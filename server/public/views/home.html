@@ -1,36 +1,40 @@
-<h1>{{UserName}}</h1>
+<div ng-controller="UserController as x" ng-init='x.getUserItems()'>
+  <h1>{{x.username}}</h1>
 
-<div ng-controller = "UserController as x" ng-init = 'x.getUserItems()'>
+  <h1>Architecture</h1>
   <div class='container row'>
-    <h2>Architecture</h2>
-  <div ng-repeat='thing in x.archResult' class='col-sm-4'>
-    <div class = "card" class='col-sm-4'>
-      <img src= "{{thing.imgURL}}"/>
-      <h2>{{ thing.title }}</h3>
+    <div ng-repeat='thing in x.archResult' class='col-sm-4'>
+      <div class="card" class='col-sm-4'>
+        <img src="{{thing.imgURL}}" />
+        <h2>{{ thing.title }}</h3>
       <a href="{{thing.linkURL}}"></a>
-      <h4>{{ thing.tag1 }} {{ thing.tag2 }} {{ thing.tag3 }} {{ thing.tag4 }} {{ thing.tag5 }}</h4>
+      <p>{{ thing.tag1 }} {{ thing.tag2 }} {{ thing.tag3 }} {{ thing.tag4 }} {{ thing.tag5 }}</p>
       <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
     </div>
   </div>
-  <h2>Desgin</h2>
+  <h1>Desgin</h1>
+  <div class='container row'>
   <div ng-repeat='thing in x.dsgnResult' class='col-sm-4'>
     <div class = "card" class='col-sm-4'>
       <img src= "{{thing.imgURL}}"/>
       <h2>{{ thing.title }}</h3>
       <a href="{{thing.linkURL}}"></a>
-      <h4>{{ thing.tag1 }} {{ thing.tag2 }} {{ thing.tag3 }} {{ thing.tag4 }} {{ thing.tag5 }}</h4>
+      <p>{{ thing.tag1 }} {{ thing.tag2 }} {{ thing.tag3 }} {{ thing.tag4 }} {{ thing.tag5 }}</p>
       <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
     </div>
   </div>
-  <h2>Art</h2>
+</div>
+  <h1>Art</h1>
+  <div class='container row'>
   <div ng-repeat='thing in x.artResult' class='col-sm-4'>
     <div class = "card" class='col-sm-4'>
       <img src= "{{thing.imgURL}}"/>
       <h2>{{ thing.title }}</h3>
       <a href="{{thing.linkURL}}"></a>
-      <h4>{{ thing.tag1 }} {{ thing.tag2 }} {{ thing.tag3 }} {{ thing.tag4 }} {{ thing.tag5 }}</h4>
+      <p>{{ thing.tag1 }} {{ thing.tag2 }} {{ thing.tag3 }} {{ thing.tag4 }} {{ thing.tag5 }}</p>
       <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
     </div>
   </div>
+</div>
 </div>
 </div>

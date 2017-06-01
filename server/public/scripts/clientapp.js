@@ -74,7 +74,6 @@ myApp.controller('UserController', function(postService, getService) {
           }
           if ( data[i].type === "art"){
             vm.artResult.push(data[i]);
-            return vm.artResult;
           }
         }
 

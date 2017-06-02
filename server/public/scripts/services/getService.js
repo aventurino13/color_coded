@@ -3,7 +3,7 @@ myApp.service('getService',['$http', function($http){
   this.rmItem = function (itemId){
   return $http({
     method:'GET',
-    url:'/remove',
+    url:'/user/remove',
     params: {
       id: itemId,
     }
@@ -16,7 +16,7 @@ myApp.service('getService',['$http', function($http){
 this.userItems = function(userName){
   return $http({
     method:'GET',
-    url:'/user',
+    url:'/user/userItems',
     params: {
       user: userName,
     }
@@ -29,7 +29,7 @@ this.userItems = function(userName){
 this.getItems = function(itemType){
   return $http({
     method:'GET',
-    url:'/Items',
+    url:'/user/Items',
     params: {
       type: itemType,
     }

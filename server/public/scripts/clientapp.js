@@ -2,6 +2,12 @@ var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.config(function($routeProvider, $locationProvider){
   $routeProvider.when('/', {
+    templateUrl: '/views/login.html',
+    controller: "LoginController as lc",
+  }).when('/register', {
+    templateUrl: '/views/register.html',
+    controller: "LoginController as lc"
+  }).when('/home', {
     templateUrl:'views/home.html',
     controller: 'UserController as uc'
   }).when('/add', {
@@ -22,9 +28,29 @@ myApp.config(function($routeProvider, $locationProvider){
 
 });//end ang-route config
 
-myApp.controller('UserController', function(postService, getService) {
+myApp.controller('UserController', function($http, postService, getService) {
   var vm = this;
-  vm.userName = "amy";
+
+  // Upon load, check this user's session on the server
+$http.get('/user').then(function(response) {
+    if(response.data.username) {
+        // user has a curret session on the server
+        vm.userName = response.data.username;
+        console.log('User Data: ', vm.userName);
+        vm.getUserItems();
+        return vm.userName;
+    } else {
+        // user has no session, bounce them back to the login page
+        $location.path("/login");
+    }
+});
+
+vm.logout = function() {
+  $http.get('/user/logout').then(function(response) {
+    console.log('logged out');
+    $location.path("/login");
+  });
+}
 
   vm.showPicker = function(){
     var client = filestack.init('ANxEyrmJzQsSnoC7PFCcXz');
@@ -85,9 +111,9 @@ myApp.controller('UserController', function(postService, getService) {
               console.log('in .then delte return', data);
                 vm.getUserItems();
             });
-        
-          };
 
+          };
+          vm.getUserItems();
 });
 
 myApp.controller('viewsController', function(postService, getService) {
@@ -118,4 +144,52 @@ myApp.controller('viewsController', function(postService, getService) {
 
   };
 
+});
+
+
+myApp.controller('LoginController', function($http, $location) {
+  console.log('LoginController loaded');
+    var vm = this;
+
+    vm.user = {
+      username: '',
+      password: ''
+    };
+    vm.message = '';
+
+    vm.login = function() {
+      console.log('here', vm.user);
+      if(vm.user.username == '' || vm.user.password == '') {
+        vm.message = "Enter your username and password!";
+      } else {
+        console.log('sending to server...', vm.user);
+        $http.post('/', vm.user).then(function(response) {
+          if(response.data.username) {
+            console.log('success: ', response.data);
+            // location works with SPA (ng-route)
+            console.log('redirecting to user page');
+            $location.path('/home');
+          } else {
+            console.log('failure: ', response);
+            vm.message = "Wrong!!";
+          }
+        });
+      }
+    }
+
+    vm.registerUser = function() {
+      if(vm.user.username == '' || vm.user.password == '') {
+        vm.message = "Choose a username and password!";
+      } else {
+        console.log('sending to server...', vm.user);
+        $http.post('/register', vm.user).then(function(response) {
+          console.log('success');
+          $location.path('/home');
+        },
+        function(response) {
+          console.log('error');
+          vm.message = "Please try again."
+        });
+      }
+    }
 });

@@ -1,3 +1,5 @@
+
+
 <nav>
     <ul>
       <a href="/home"> home</a>
@@ -10,11 +12,11 @@
   </nav>
 
 <div ng-controller="UserController as x" ng-init='x.getUserItems()'>
-  <h1>{{x.userName}}</h1>
+  <h1> welcome {{x.userName}}</h1>
 
   <h1>Architecture</h1>
   <div class='container row'>
-      <div ng-repeat='thing in x.archResult' class="col-sm-12 col-md-6 col-lg-4">
+      <div ng-repeat='thing in x.archResult' class="col-sm-12 col-md-6 col-lg-4" >
       <div class = "card" class="col-sm-12 col-md-6 col-lg-4">
           <img src="{{thing.imgURL}}" />
           <span>
@@ -23,7 +25,7 @@
       <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
       </span>
     </div>
-      <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
+      <button ng-click='x.deleteItem(thing._id)'><img id="dlt" src="https://cdn.filestackcontent.com/LXYH3Qh6RlmmjIlqFXvM"/></button>
     </div>
   </div>
 

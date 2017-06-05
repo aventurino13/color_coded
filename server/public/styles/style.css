@@ -2,9 +2,13 @@ img {
   width: inherit;
 }
 
+#dlt {
+  height: 30px;
+}
+
 .card {
   height: 300px;
-  margin: 20px;
+  margin: 5px;
   overflow: hidden;
   border: 1px black solid;
 }

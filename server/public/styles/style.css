@@ -6,3 +6,33 @@ img {
   height: 500px;
   padding: 20px;
 }
+
+body {
+  font-family: 'Karla', sans-serif;
+  background-image: url("narrow.png");
+  background-repeat: no-repeat;
+  height: 100%;
+  position: absolute left;
+  width: 100%;
+  z-index: 3;
+}
+
+
+
+
+
+nav {
+  height: 200px;
+  background-image: url("narrow.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  float: right;
+  font-family: 'Bubbler One', sans-serif;
+  font-size: 30px;
+}
+
+h1{
+  text-align: center;
+  margin-top: 30px;
+  font-family: 'Karla', sans-serif;
+}

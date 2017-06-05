@@ -4,6 +4,9 @@
     <meta charset="utf-8">
   <title>Color_Coded</title>
   <link rel="stylesheet" href="/vendors/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Bubbler+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
   <link rel="stylesheet" href="/styles/style.css"/>
   <script src="https://static.filestackapi.com/v3/filestack-0.6.2.js"></script>
   <script src="/vendors/angular.min.js" charset="utf-8"></script>
@@ -18,20 +21,19 @@
 
 <body ng-app="myApp">
   <div class="header">
-
   </div>
-
-  <nav>
+  <!-- <nav>
       <ul>
-        <a href="/home"> USER</a>
-        <a href="/add">  ADD </a>
-        <a href="/arch">  ARCH </a>
-        <a href="/dsgn">  DSGN  </a>
-        <a href="/art">  ART  </a>
+        <a href="/home"> home</a>
+        <a href="/add">  add </a>
+        <a href="/arch">  arch</a>
+        <a href="/dsgn">  dsgn  </a>
+        <a href="/art">  art  </a>
       </ul>
-    </nav>
-
+    </nav> -->
+    <div ng-controller="UserController as x">
+        <button class="btn btn-default" ng-click="x.logout()">Log Out</button>
+    </div>
   <ng-view></ng-view>
-
 </body>
 </html>

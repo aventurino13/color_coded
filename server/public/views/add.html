@@ -1,8 +1,15 @@
 
 <script src="https://static.filestackapi.com/v3/filestack-0.6.2.js"></script>
 
-
-
+<nav>
+    <ul>
+      <a href="/home"> home</a>
+      <a href="/add">  add </a>
+      <a href="/arch">  arch</a>
+      <a href="/dsgn">  dsgn  </a>
+      <a href="/art">  art  </a>
+    </ul>
+  </nav>
 <div ng-controller = "UserController as uc" ng-init = 'uc.getItems(favs)'>
 <div class="addForm">
 <input type="button" ng-model='uc.imgUpld' value="Upload" ng-click="uc.showPicker()" />

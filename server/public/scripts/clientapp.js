@@ -28,7 +28,7 @@ myApp.config(function($routeProvider, $locationProvider){
 
 });//end ang-route config
 
-myApp.controller('UserController', function($http, postService, getService) {
+myApp.controller('UserController', function($http, $location, postService, getService) {
   var vm = this;
 
   // Upon load, check this user's session on the server
@@ -41,7 +41,7 @@ $http.get('/user').then(function(response) {
         return vm.userName;
     } else {
         // user has no session, bounce them back to the login page
-        $location.path("/login");
+        $location.path("/");
     }
 });
 
@@ -90,7 +90,6 @@ vm.logout = function() {
         vm.dsgnResult = [];
         vm.artResult = [];
         for (var i=0; i<data.length; i++){
-          console.log("data.type-->", data.type);
           console.log("data[i].type-->", data[i].type);
           if ( data[i].type === "arch"){
             vm.archResult.push(data[i]);

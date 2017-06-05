@@ -1,38 +1,51 @@
 img {
-  width: 300px;
+  width: inherit;
 }
 
-.card{
-  height: 500px;
-  padding: 20px;
+.card {
+  height: 300px;
+  margin: 20px;
+  overflow: hidden;
+  border: 1px black solid;
+}
+
+.card span {
+  z-index: -100;
+  display: none;
+}
+
+.card:hover span {
+  display: inline;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.card img {
+  opacity: 0.25;
+}
+
+
+.card:hover img {
+  opacity: 1;
 }
 
 body {
-  font-family: 'Karla', sans-serif;
-  background-image: url("narrow.png");
-  background-repeat: no-repeat;
-  height: 100%;
-  position: absolute left;
-  width: 100%;
-  z-index: 3;
-}
-
-
-
-
+  font-family: 'Karla', sans-serif; }
 
 nav {
-  height: 200px;
+  margin: 15px;
+  height: 150px;
   background-image: url("narrow.png");
   background-repeat: no-repeat;
   background-position: left;
-  float: right;
+  text-align: right;
   font-family: 'Bubbler One', sans-serif;
-  font-size: 30px;
-}
+  font-size: 30px; }
 
-h1{
+h1 {
   text-align: center;
   margin-top: 30px;
-  font-family: 'Karla', sans-serif;
-}
+  font-family: 'Bubbler One', sans-serif;
+  font-size: 50px;
+
+/*# sourceMappingURL=style.css.map */

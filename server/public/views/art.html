@@ -5,6 +5,7 @@
       <a href="/arch">  arch</a>
       <a href="/dsgn">  dsgn  </a>
       <a href="/art">  art  </a>
+      <a href="search"> search</a>
     </ul>
   </nav>
 <h1>Art</h1>
@@ -16,7 +17,7 @@
       <img src= "{{thing.imgURL}}"/>
       <h2>{{ thing.title }}</h3>
       <a href="{{thing.linkURL}}"></a>
-      <h4>{{ thing.tag1 }} {{ thing.tag2 }} {{ thing.tag3 }} {{ thing.tag4 }} {{ thing.tag5 }}</h4>
+      <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
     </div>
   </div>
 </div>

@@ -68,7 +68,16 @@ router.get('/userItems', function(req, res) {
   }
 }); // end GET Items route
 
-
+router.get('/tags', function(req, res) {
+  console.log(req.query.tags);
+  var phrase = req.query.tags;
+  items.find({
+    tags: { $in: [phrase]},
+  }).then(function(data) {
+    console.log(data);
+    res.send(data);
+  });
+});
 // clear all server session information about this user
 router.get('/logout', function(req, res) {
   // Use passport's built-in method to log out the user
@@ -76,7 +85,6 @@ router.get('/logout', function(req, res) {
   req.logOut();
   res.sendStatus(200);
 });
-
 
 
 

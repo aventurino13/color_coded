@@ -1,0 +1,41 @@
+<nav>
+    <ul>
+      <a href="/home"> home</a>
+      <a href="/add">  add </a>
+      <a href="/arch">  arch</a>
+      <a href="/dsgn">  dsgn  </a>
+      <a href="/art">  art  </a>
+      <a href="search"> search</a>
+    </ul>
+  </nav>
+
+<div ng-controller = "searchController as sc" >
+  <input ng-model="sc.searchTag" type="text" value="" placeholder="search by tag phrases...">
+ <button ng-click="sc.findTags()" class='btn btn-success' type="button" name="button">Search Tags</button>
+ <input ng-model="sc.searchUser" type="text" value="" placeholder="search by user...">
+ <button ng-click="sc.findUser()" class='btn btn-success' type="button" name="button">Search Users</button>
+ <div ng-repeat ="tag in sc.tagResponse track by $index">
+   <div class= "card" class="col-sm-12 col-md-6 col-lg-4">
+
+     <img src= "{{tag.imgURL}}"/>
+     <span>
+     <h2>{{ thing.title }}</h3>
+     <a href="{{tag.linkURL}}"></a>
+     <p>{{ tag.tags[0]}} {{ tag.tags[1]}} {{ tag.tags[2]}} {{ tag.tags[3]}} {{ tag.tags[4]}}</p>
+     </span>
+   </div>
+</div>
+
+<div ng-repeat ="thing in sc.srchResults track by $index">
+  <div class= "card" class="col-sm-12 col-md-6 col-lg-4">
+
+    <img src= "{{thing.imgURL}}"/>
+    <span>
+    <h2>{{ thing.title }}</h3>
+    <a href="{{thing.linkURL}}"></a>
+    <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
+    </span>
+  </div>
+
+</div>
+</div>

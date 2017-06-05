@@ -40,4 +40,19 @@ this.getItems = function(itemType){
 }; //end getItems function
   //get items of specific type
 
+  this.findItems = function(srchTag){
+    console.log(srchTag);
+    return $http({
+      method: 'GET',
+      url:'/user/tags',
+      params: {
+        tags: srchTag,
+      }
+      }).then(function(response) {
+        console.log('get items from tag search', response.data);
+        return response.data;
+      });
+    };
+
+
 }]); //end getService

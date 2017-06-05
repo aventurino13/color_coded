@@ -22,6 +22,9 @@ myApp.config(function($routeProvider, $locationProvider){
   }).when('/art', {
     templateUrl: 'views/art.html',
     controller: 'viewsController as uc'
+  }).when('/search', {
+    templateUrl: 'views/search.html',
+    controller: 'searchController as uc'
   }).otherwise('/');
 
     $locationProvider.html5Mode(true);
@@ -113,6 +116,14 @@ vm.logout = function() {
 
           };
           vm.getUserItems();
+
+          // vm.hoverIn = function(){
+          //     vm.hoverEdit = true;
+          // };
+          //
+          // vm.hoverOut = function(){
+          //     vm.hoverEdit = false;
+          // };
 });
 
 myApp.controller('viewsController', function(postService, getService) {

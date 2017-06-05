@@ -5,6 +5,7 @@
       <a href="/arch">  arch</a>
       <a href="/dsgn">  dsgn  </a>
       <a href="/art">  art  </a>
+      <a href="search"> search</a>
     </ul>
   </nav>
 
@@ -12,45 +13,47 @@
   <h1>{{x.userName}}</h1>
 
   <h1>Architecture</h1>
-  <div class='container'>
-    <div class='row'>
-      <div ng-repeat='thing in x.archResult' class='col-sm-4'>
-        <div class="card" class='col-sm-3'>
+  <div class='container row'>
+      <div ng-repeat='thing in x.archResult' class="col-sm-12 col-md-6 col-lg-4">
+      <div class = "card" class="col-sm-12 col-md-6 col-lg-4">
           <img src="{{thing.imgURL}}" />
+          <span>
           <h2>{{ thing.title }}</h3>
       <a href="{{thing.linkURL}}"></a>
-      <p>{{ thing.tag1 }} {{ thing.tag2 }} {{ thing.tag3 }} {{ thing.tag4 }} {{ thing.tag5 }}</p>
+      <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
+      </span>
+    </div>
       <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
     </div>
-    </div>
   </div>
-</div>
+
     <h1>Design</h1>
-  <div class='container'>
-    <div class='row'>
-  <div ng-repeat='thing in x.dsgnResult' class="col-sm-12 col-md-6 col-lg-4">
-    <div class = "card" class="col-6 col-md-4">
-      <img src= "{{thing.imgURL}}"/>
-      <h2>{{ thing.title }}</h3>
-      <a href="{{thing.linkURL}}"></a>
-      <p>{{ thing.tag1 }} {{ thing.tag2 }} {{ thing.tag3 }} {{ thing.tag4 }} {{ thing.tag5 }}</p>
+  <div class='container row'>
+  <div ng-repeat='thing in x.dsgnResult'class="col-sm-12 col-md-6 col-lg-4" >
+    <div class = "card" class="col-sm-12 col-md-6 col-lg-4">
+      <img src= "{{thing.imgURL}}" />
+      <span>
+        <h2>{{ thing.title }}</h3>
+        <a href="{{thing.linkURL}}"></a>
+        <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
+      </span>
+    </div>
       <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
     </div>
-    </div>
   </div>
-</div>
+
   <h1>Art</h1>
-  <div class='container'>
-    <div class='row'>
-  <div ng-repeat='thing in x.artResult' class='col-sm-4'>
-    <div class = "card" class='col-sm-3'>
-      <img src= "{{thing.imgURL}}"/>
+  <div class='container row'>
+  <div ng-repeat='thing in x.artResult' class="col-sm-12 col-md-6 col-lg-4" >
+    <div class = "card" class="col-sm-12 col-md-6 col-lg-4">
+      <span>
       <h2>{{ thing.title }}</h3>
       <a href="{{thing.linkURL}}"></a>
-      <p>{{ thing.tag1 }} {{ thing.tag2 }} {{ thing.tag3 }} {{ thing.tag4 }} {{ thing.tag5 }}</p>
-      <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
+      <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
+      </span>
+      <img src= "{{thing.imgURL}}"/>
     </div>
+    <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
     </div>
   </div>
-</div>
 </div>

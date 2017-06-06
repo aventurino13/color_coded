@@ -7,7 +7,7 @@
       <a href="/arch">  arch</a>
       <a href="/dsgn">  dsgn  </a>
       <a href="/art">  art  </a>
-      <a href="search"> search</a>
+      <a href="/search"> search</a>
     </ul>
   </nav>
 
@@ -21,11 +21,11 @@
           <img src="{{thing.imgURL}}" />
           <span>
           <h2>{{ thing.title }}</h3>
-      <a href="{{thing.linkURL}}"></a>
       <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
       </span>
     </div>
-      <button ng-click='x.deleteItem(thing._id)'><img id="dlt" src="https://cdn.filestackcontent.com/LXYH3Qh6RlmmjIlqFXvM"/></button>
+      <button ng-click='x.deleteItem(thing._id)'> Remove Item</button>
+        <a ng-href="{{thing.linkURL}}">Link</a>
     </div>
   </div>
 
@@ -36,11 +36,11 @@
       <img src= "{{thing.imgURL}}" />
       <span>
         <h2>{{ thing.title }}</h3>
-        <a href="{{thing.linkURL}}"></a>
         <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
       </span>
     </div>
       <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
+      <a ng-href="{{thing.linkURL}}">Link</a>
     </div>
   </div>
 
@@ -50,12 +50,13 @@
     <div class = "card" class="col-sm-12 col-md-6 col-lg-4">
       <span>
       <h2>{{ thing.title }}</h3>
-      <a href="{{thing.linkURL}}"></a>
+
       <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
       </span>
       <img src= "{{thing.imgURL}}"/>
     </div>
     <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
+    <a ng-href="{{thing.linkURL}}">Link</a>
     </div>
   </div>
 </div>

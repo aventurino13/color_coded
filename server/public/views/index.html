@@ -14,6 +14,9 @@
   <script src="/vendors/angular-route.min.js" charset="utf-8"></script>
   <script src="/scripts/clientapp.js" charset="utf-8"></script>
   <script src="/scripts/controllers/searchCtrl.js" charset="utf-8"></script>
+  <script src="/scripts/controllers/loginCtrl.js" charset="utf-8"></script>
+  <script src="/scripts/controllers/userCtrl.js" charset="utf-8"></script>
+    <script src="/scripts/controllers/viewsCtrl.js" charset="utf-8"></script>
   <script src="/scripts/services/getService.js" charset="utf-8"></script>
   <script src="/scripts/services/postService.js" charset="utf-8"></script>
 
@@ -22,17 +25,7 @@
 </head>
 
 <body ng-app="myApp">
-  <div class="header">
-  </div>
-  <!-- <nav>
-      <ul>
-        <a href="/home"> home</a>
-        <a href="/add">  add </a>
-        <a href="/arch">  arch</a>
-        <a href="/dsgn">  dsgn  </a>
-        <a href="/art">  art  </a>
-      </ul>
-    </nav> -->
+
     <div ng-controller="UserController as x">
         <button class="btn btn-default" ng-click="x.logout()">Log Out</button>
     </div>

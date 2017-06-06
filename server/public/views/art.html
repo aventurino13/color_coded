@@ -15,10 +15,14 @@
   <div ng-repeat='thing in x.allArt' class='col-sm-4'>
     <div class = "card" class='col-sm-4'>
       <img src= "{{thing.imgURL}}"/>
+      <span>
       <h2>{{ thing.title }}</h3>
       <a href="{{thing.linkURL}}"></a>
       <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
+    </span>
     </div>
+    <p>{{thing.votes.length}}</p>
+<button ng-click='x.upVote(thing._id)'>+</button>
   </div>
 </div>
 </div>

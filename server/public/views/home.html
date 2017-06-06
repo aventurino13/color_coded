@@ -25,6 +25,7 @@
       </span>
     </div>
       <button ng-click='x.deleteItem(thing._id)'> Remove Item</button>
+      <p>Votes {{thing.votes.length}}</p>
         <a ng-href="{{thing.linkURL}}">Link</a>
     </div>
   </div>
@@ -40,6 +41,7 @@
       </span>
     </div>
       <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
+      <p>Votes: {{thing.votes.length}}</p>
       <a ng-href="{{thing.linkURL}}">Link</a>
     </div>
   </div>
@@ -56,6 +58,7 @@
       <img src= "{{thing.imgURL}}"/>
     </div>
     <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
+    <p>Votes {{thing.votes.length}}</p>
     <a ng-href="{{thing.linkURL}}">Link</a>
     </div>
   </div>

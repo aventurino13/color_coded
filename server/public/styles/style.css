@@ -2,10 +2,6 @@ img {
   width: inherit;
 }
 
-#dlt {
-  height: 30px;
-}
-
 .card {
   height: 300px;
   margin: 5px;
@@ -31,6 +27,11 @@ img {
 
 .card:hover img {
   opacity: 1;
+}
+
+#search {
+  margin-right: 75px;
+  margin-left: 75px;
 }
 
 body {

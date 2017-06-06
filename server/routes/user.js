@@ -21,6 +21,8 @@ router.get('/', function(req, res) {
   }
 });
 
+
+//POST new user item
 router.post('/userItems', function(req, res) {
   console.log(req.body);
   var addItem = items(req.body);
@@ -29,6 +31,8 @@ router.post('/userItems', function(req, res) {
   }); //end save
 }); // end post
 
+
+//Delete item
 router.get('/remove', function(req, res) {
   console.log(req.query.id);
   items.remove({
@@ -39,7 +43,22 @@ router.get('/remove', function(req, res) {
   });
 }); //end remove Items GET route
 
+//upvote item
+router.get('/upvote', function(req, res) {
+  console.log(req.query.id);
+  console.log(req.query.user);
+  items.update(
+    {_id: req.query.id} ,
+    { $addToSet: {votes: req.query.user}
+  }).then(function(data) {
+    console.log(data);
+    res.sendStatus(200);
+  });
+}); //end remove Items GET route
+
+//GET items of certain type
 router.get('/Items', function(req, res) {
+  console.log('in req for type on server');
   console.log(req.query.type);
   if (req.query.type !== undefined) {
     items.find({
@@ -56,8 +75,10 @@ router.get('/Items', function(req, res) {
   }
 }); // end GET Items route
 
+
+//GET all items for user - via home page and search
 router.get('/userItems', function(req, res) {
-  console.log(req.query.user);
+  console.log('req.query.user', req.query.user);
   if (req.query.user !== undefined) {
     items.find({
       user: req.query.user,
@@ -65,9 +86,14 @@ router.get('/userItems', function(req, res) {
       console.log(data);
       res.send(data);
     });
+  } else {
+    res.send("user is undefined");
   }
 }); // end GET Items route
 
+
+
+//GET items by search tags
 router.get('/tags', function(req, res) {
   console.log(req.query.tags);
   var phrase = req.query.tags;
@@ -78,6 +104,10 @@ router.get('/tags', function(req, res) {
     res.send(data);
   });
 });
+
+
+
+
 // clear all server session information about this user
 router.get('/logout', function(req, res) {
   // Use passport's built-in method to log out the user

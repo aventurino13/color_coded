@@ -1,6 +1,7 @@
 myApp.controller('UserController', function($http, $location, postService, getService) {
   var vm = this;
 
+
   // Upon load, check this user's session on the server
 $http.get('/user').then(function(response) {
     if(response.data.username) {

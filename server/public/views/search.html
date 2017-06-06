@@ -15,7 +15,7 @@
  <input ng-model="sc.searchUser" type="text" value="" placeholder="search by user...">
  <button ng-click="sc.findUser()" class='btn btn-success' type="button" name="button">Search Users</button>
  <div ng-repeat ="tag in sc.tagResponse track by $index">
-   <div class= "card" class="col-sm-12 col-md-6 col-lg-4">
+   <div class= "card" class="col-sm-12 col-md-6 col-lg-4" id="search">
 
      <img src= "{{tag.imgURL}}"/>
      <span>
@@ -27,7 +27,7 @@
 </div>
 
 <div ng-repeat ="thing in sc.srchResults track by $index">
-  <div class= "card" class="col-sm-12 col-md-6 col-lg-4">
+  <div class= "card" class="col-sm-12 col-md-6 col-lg-4" id="search">
 
     <img src= "{{thing.imgURL}}"/>
     <span>

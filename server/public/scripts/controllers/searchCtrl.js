@@ -17,6 +17,7 @@ myApp.controller('searchController', function(getService) {
       vm.srchResults = response;
     });
     vm.srchResults = '';
+    vm.srchUser = '';
   };
 
 });//end search controller

@@ -26,4 +26,19 @@ myApp.controller('viewsController', function(postService, getService) {
 
   };
 
+
+  vm.upVote = function(itemId){
+    getService.getUser().then(function(data){
+      vm.user = data;
+      console.log("user who wants to vote", vm.user);
+      return vm.user;
+    });
+    getService.voteItem(itemId, vm.user).then(function(data){
+      console.log('in up vote item return', data);
+      vm.getArch();
+      vm.getDsgn();
+      vm.getArt();
+    });
+  };
+
 });

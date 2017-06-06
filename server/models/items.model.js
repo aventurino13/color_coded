@@ -7,7 +7,8 @@ var itemsSchema = new Schema({
     linkURL: String,
     type: String,
     tags: Array,
-    user: String
+    user: String,
+    votes: Array
 });
 
 

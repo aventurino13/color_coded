@@ -1,3 +1,18 @@
+
+a {
+    position: relative;
+}
+
+.popover {
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    display: block;
+    padding: 0 20px;
+  }
+
 img {
   width: inherit;
 }
@@ -6,7 +21,14 @@ img {
   height: 300px;
   margin: 5px;
   overflow: hidden;
+  z-index: -100;
   border: 1px black solid;
+}
+
+/*.card:hover {
+  z-index: 100;
+  transform:scale(2,2);
+  backface-visibility: hidden;
 }
 
 .card span {
@@ -15,19 +37,19 @@ img {
 }
 
 .card:hover span {
-  display: inline;
-  z-index: 100;
   overflow: hidden;
 }
 
 .card img {
   opacity: 0.25;
+  z-index: -200;
 }
 
 
 .card:hover img {
   opacity: 1;
-}
+  z-index: inherit;
+}*/
 
 #search {
   margin-right: 75px;

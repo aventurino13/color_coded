@@ -1,27 +1,29 @@
-myApp.controller('UserController', function($http, $location, postService, getService) {
+myApp.controller('UserController', function($location, postService, getService) {
   var vm = this;
 
-
-  // Upon load, check this user's session on the server
-$http.get('/user').then(function(response) {
-    if(response.data.username) {
-        // user has a curret session on the server
-        vm.userName = response.data.username;
-        console.log('User Data: ', vm.userName);
-        vm.getUserItems();
-        return vm.userName;
-    } else {
-        // user has no session, bounce them back to the login page
-        $location.path("/");
+//   // Upon load, check this user's session on the server
+vm.checkUser = function () {
+  getService.getUser().then(function(response){
+  if(response.data.username) {
+      // user has a curret session on the server
+      vm.userName = response.data.username;
+      console.log('User Data: ', vm.userName);
+      vm.getUserItems();
+      return vm.userName;
+  } else {
+      // user has no session, bounce them back to the login page
+      $location.path("/");
     }
-});
+  });
+};
 
 vm.logout = function() {
-  $http.get('/user/logout').then(function(response) {
-    console.log('logged out');
-    $location.path("/login");
+  getService.logoutUser().then(function(response){
+      $location.path("/login");
   });
-}
+
+};
+
 
   vm.showPicker = function(){
     var client = filestack.init('ANxEyrmJzQsSnoC7PFCcXz');
@@ -84,7 +86,11 @@ vm.logout = function() {
 
           };
 
-    vm.getUserItems();
 
+
+
+    // vm.getUserItems();
+
+vm.checkUser();
 
 });

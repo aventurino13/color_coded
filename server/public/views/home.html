@@ -16,17 +16,18 @@
 
   <h1>Architecture</h1>
   <div class='container row'>
-      <div ng-repeat='thing in x.archResult' class="col-sm-12 col-md-6 col-lg-4" >
-      <div class = "card" class="col-sm-12 col-md-6 col-lg-4">
-          <img src="{{thing.imgURL}}" />
-          <span>
-          <h2>{{ thing.title }}</h3>
-      <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
+  <div ng-repeat='thing in x.archResult'class="col-sm-12 col-md-6 col-lg-4" >
+    <div class = "card" class="col-sm-12 col-md-6 col-lg-4">
+
+      <img src= "{{thing.imgURL}}" />
+      <span>
+        <h2>{{ thing.title }}</h3>
       </span>
     </div>
-      <button ng-click='x.deleteItem(thing._id)'> Remove Item</button>
-      <p>Votes {{thing.votes.length}}</p>
-        <a ng-href="{{thing.linkURL}}">Link</a>
+      <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
+      <p>Votes: {{thing.votes.length}}</p>
+      <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
+      <a ng-href="{{thing.linkURL}}">Link</a>
     </div>
   </div>
 
@@ -34,14 +35,16 @@
   <div class='container row'>
   <div ng-repeat='thing in x.dsgnResult'class="col-sm-12 col-md-6 col-lg-4" >
     <div class = "card" class="col-sm-12 col-md-6 col-lg-4">
-      <img src= "{{thing.imgURL}}" />
+
+           <img src= "{{thing.imgURL}}" />
+
       <span>
         <h2>{{ thing.title }}</h3>
-        <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
       </span>
     </div>
       <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
       <p>Votes: {{thing.votes.length}}</p>
+        <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
       <a ng-href="{{thing.linkURL}}">Link</a>
     </div>
   </div>
@@ -52,13 +55,12 @@
     <div class = "card" class="col-sm-12 col-md-6 col-lg-4">
       <span>
       <h2>{{ thing.title }}</h3>
-
-      <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
       </span>
       <img src= "{{thing.imgURL}}"/>
     </div>
     <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
     <p>Votes {{thing.votes.length}}</p>
+        <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
     <a ng-href="{{thing.linkURL}}">Link</a>
     </div>
   </div>

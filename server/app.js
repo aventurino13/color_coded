@@ -42,57 +42,6 @@ app.use('/user', user);
 app.use('/*', index);
 
 
-      // app.get('/', function(req, res) {
-      //   res.sendFile(path.resolve('./server/public/views/index.html'));
-      // });
-
-// app.post('/Items', function(req, res) {
-//   console.log(req.body);
-//   var addItem = items(req.body);
-//   addItem.save().then(function() {
-//     res.sendStatus(200);
-//   }); //end save
-// }); // end post
-//
-// app.get('/remove', function(req, res) {
-//   console.log(req.query.id);
-//   items.remove({
-//     _id: req.query.id
-//   }).then(function(data) {
-//     console.log(data);
-//     res.sendStatus(200);
-//   });
-// }); //end remove Items GET route
-//
-// app.get('/Items', function(req, res) {
-//   console.log(req.query.type);
-//   if (req.query.type !== undefined) {
-//     items.find({
-//       type: req.query.type
-//     }).then(function(data) {
-//       console.log(data);
-//       res.send(data);
-//     });
-//   } else {
-//     items.find().then(function(data) {
-//       console.log(data);
-//       res.send(data);
-//     });
-//   }
-// }); // end GET Items route
-//
-// app.get('/user', function(req, res) {
-//   console.log(req.query.user);
-//   if (req.query.user !== undefined) {
-//     items.find({
-//       user: req.query.user,
-//     }).then(function(data) {
-//       console.log(data);
-//       res.send(data);
-//     });
-//   }
-// }); // end GET Items route
-
 
 app.get('/*', function(req, res) {
   res.sendFile(path.resolve('./server/public/views/index.html'));

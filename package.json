@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.4",
+    "angular-modal-gallery": "^3.0.2",
+    "angular-modal-service": "^0.12.1",
     "angular-route": "^1.6.4",
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.2",
@@ -20,6 +22,7 @@
     "express-session": "^1.15.3",
     "filestack-js": "^0.6.3",
     "mongoose": "^4.10.4",
+    "ng-tags-input": "^3.2.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path": "^0.12.7"

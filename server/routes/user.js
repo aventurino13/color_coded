@@ -33,7 +33,7 @@ router.post('/userItems', function(req, res) {
 
 
 //Delete item
-router.get('/remove', function(req, res) {
+router.delete('/remove', function(req, res) {
   console.log(req.query.id);
   items.remove({
     _id: req.query.id
@@ -44,7 +44,7 @@ router.get('/remove', function(req, res) {
 }); //end remove Items GET route
 
 //upvote item
-router.get('/upvote', function(req, res) {
+router.put('/upvote', function(req, res) {
   console.log(req.query.id);
   console.log(req.query.user);
   items.update(

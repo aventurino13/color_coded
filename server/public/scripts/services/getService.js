@@ -2,7 +2,7 @@ myApp.service('getService',['$http', function($http){
 
   this.rmItem = function (itemId){
   return $http({
-    method:'GET',
+    method:'DELETE',
     url:'/user/remove',
     params: {
       id: itemId,
@@ -15,7 +15,7 @@ myApp.service('getService',['$http', function($http){
 
 this.voteItem = function (itemId, userName){
 return $http({
-  method:'GET',
+  method:'PUT',
   url:'/user/upvote',
   params: {
     id: itemId,

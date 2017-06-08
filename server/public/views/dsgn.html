@@ -22,8 +22,8 @@
       <img src= "{{thing.imgURL}}"/>
     </div>
       <a href="{{thing.linkURL}}"></a>
-      <p> Votes: {{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
-    <p>{{thing.votes.length}}</p>
+      <p> Tags: {{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
+    <p>Votes: {{thing.votes.length}}</p>
     <button ng-click='x.upVote(thing._id)'>UPVOTE</button>
   </div>
 </div>

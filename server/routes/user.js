@@ -25,10 +25,14 @@ router.get('/', function(req, res) {
 //POST new user item
 router.post('/userItems', function(req, res) {
   console.log(req.body);
+  if (req.user.username == req.body.user){
   var addItem = items(req.body);
   addItem.save().then(function() {
     res.sendStatus(200);
   }); //end save
+} else {
+    res.sendStatus(403);
+  }
 }); // end post
 
 

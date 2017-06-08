@@ -11,6 +11,7 @@
     </ul>
   </nav>
 
+
 <div ng-controller="UserController as x" >
   <h1> welcome {{x.userName}}</h1>
 
@@ -23,12 +24,12 @@
         <h3>{{ thing.title }}</h3>
 
       <img src= "{{thing.imgURL}}" />
-    </div>
+</div>
       <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
       <p>Votes: {{thing.votes.length}}</p>
       <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
       <a ng-href="{{thing.linkURL}}">Link</a>
-    </div>
+      </div>
     </div>
     </div>
 

@@ -102,6 +102,20 @@ myApp.service('itemService', ['$http', function($http) {
     });
   };
 
+this.editTags = function(itemId, newTags){
+  return $http({
+    method: 'PUT',
+    url:'/user/editTags',
+    params: {
+      tags: newTags,
+      id: itemId
+    }
+    }).then(function(response) {
+        console.log('in edit from service', response);
+        return response;
+      });
+    };
+
 
 
 }]); //end getService

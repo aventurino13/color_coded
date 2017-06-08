@@ -86,7 +86,12 @@ vm.logout = function() {
 
           };
 
-
+vm.changeTags = function(id){
+  vm.newTags = [vm.newTag1, vm.newTag2, vm.newTag3, vm.newTag4, vm.newTag5];
+  console.log('id-->', id);
+  console.log('newTags-->', vm.newTags);
+  itemService.editTags(id, vm.newTags);
+};
 
 
     // vm.getUserItems();

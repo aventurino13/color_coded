@@ -9,7 +9,7 @@ require('../modules/db.js');
 router.get('/', function(req, res) {
   console.log('get /user route');
   // check if logged in
-  if(req.isAuthenticated()) {
+  if (req.isAuthenticated()) {
     // send back user object from database
     console.log('logged in');
     res.send(req.user);
@@ -25,12 +25,12 @@ router.get('/', function(req, res) {
 //POST new user item
 router.post('/userItems', function(req, res) {
   console.log(req.body);
-  if (req.user.username == req.body.user){
-  var addItem = items(req.body);
-  addItem.save().then(function() {
-    res.sendStatus(200);
-  }); //end save
-} else {
+  if (req.user.username == req.body.user) {
+    var addItem = items(req.body);
+    addItem.save().then(function() {
+      res.sendStatus(200);
+    }); //end save
+  } else {
     res.sendStatus(403);
   }
 }); // end post
@@ -38,58 +38,76 @@ router.post('/userItems', function(req, res) {
 
 //Delete item
 router.delete('/remove', function(req, res) {
-  console.log('item id-->',req.query.id);
-  console.log('user making delete request-->',req.user.username);
-  if (req.isAuthenticated()){
-  items.remove({
-    _id: req.query.id,
-    user: req.user.username
-  }).then(function(data) {
-    console.log(data);
-    res.sendStatus(200);
-  });
-} else {
-  res.sendStatus(403);
-}
+  console.log('item id-->', req.query.id);
+  console.log('user making delete request-->', req.user.username);
+  if (req.isAuthenticated()) {
+    items.remove({
+      _id: req.query.id,
+      user: req.user.username
+    }).then(function(data) {
+      console.log(data);
+      res.sendStatus(200);
+    });
+  } else {
+    res.sendStatus(403);
+  }
 }); //end remove Items GET route
 
 //upvote item
 router.put('/upvote', function(req, res) {
   console.log(req.query.id);
   console.log(req.query.user);
-  if (req.isAuthenticated()){
-  items.update(
-    {_id: req.query.id} ,
-    { $addToSet: {votes: req.query.user}
-  }).then(function(data) {
-    console.log(data);
-    res.sendStatus(200);
-  });
-} else {
+  if (req.isAuthenticated()) {
+    items.update({
+      _id: req.query.id
+    }, {
+      $addToSet: {
+        votes: req.query.user
+      }
+    }).then(function(data) {
+      console.log(data);
+      res.sendStatus(200);
+    });
+  } else {
     res.sendStatus(403);
   }
 }); //end remove Items GET route
 
+router.put('/user/editTags', function(req, res){
+  console.log(req.query.id);
+  console.log(req.query.tags);
+  items.update(
+    {_id: req.query.id},
+    { $set: { tags: req.query.tags } }
+  ).then(function(data) {
+    console.log(data);
+    res.sendStatus(200);
+  });
+// } else {
+//   res.sendStatus(403);
+// }); //end remove Items GET route
+});
+
 //GET items of certain type
 router.get('/Items', function(req, res) {
   console.log('in req for type on server for type-->', req.query.type);
-if (req.isAuthenticated()){
-  if (req.query.type !== undefined) {
-    items.find({
-      type: req.query.type
-    }).then(function(data) {
-      console.log(data);
-      res.send(data);
-    });
-  } else {
-    items.find().then(function(data) {
-      console.log(data);
-      res.send(data);
-    });
-  }
-  } else {
-      res.sendStatus(403);
+  if (req.isAuthenticated()) {
+    if (req.query.type !== undefined) {
+      items.find({
+        type: req.query.type
+      }).then(function(data) {
+        console.log(data);
+        res.send(data);
+      });
+    } else {
+      items.find().then(function(data) {
+        console.log(data);
+        res.send(data);
+      });
     }
+  } else {
+    res.sendStatus(403);
+  }
 }); // end GET Items route
 
 
@@ -97,20 +115,20 @@ if (req.isAuthenticated()){
 router.get('/userItems', function(req, res) {
   console.log('req.query.user', req.query.user);
   console.log('passport user ', req.user.username);
-  if (req.isAuthenticated()){
+  if (req.isAuthenticated()) {
     if (req.query.user !== undefined) {
-    items.find({
-      user: req.query.user,
-    }).then(function(data) {
-      console.log(data);
-      res.send(data);
-    });
-  } else {
-    res.send("user is undefined");
-  }
-} else {
-  res.sendStatus(403);
+      items.find({
+        user: req.query.user,
+      }).then(function(data) {
+        console.log(data);
+        res.send(data);
+      });
+    } else {
+      res.send("user is undefined");
     }
+  } else {
+    res.sendStatus(403);
+  }
 }); // end GET Items route
 
 
@@ -120,7 +138,9 @@ router.get('/tags', function(req, res) {
   console.log(req.query.tags);
   var phrase = req.query.tags;
   items.find({
-    tags: { $in: [phrase]},
+    tags: {
+      $in: [phrase]
+    },
   }).then(function(data) {
     console.log(data);
     res.send(data);
@@ -136,7 +156,7 @@ router.get('/logout', function(req, res) {
   console.log('Logged out');
   req.logOut();
   res.sendStatus(200);
-});
+cd});
 
 
 

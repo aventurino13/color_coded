@@ -40,7 +40,7 @@ router.post('/userItems', function(req, res) {
 router.delete('/remove', function(req, res) {
   console.log('item id-->',req.query.id);
   console.log('user making delete request-->',req.user.username);
-  if (req.user.username == req.body.user){
+  if (req.isAuthenticated()){
   items.remove({
     _id: req.query.id,
     user: req.user.username
@@ -96,7 +96,9 @@ if (req.isAuthenticated()){
 //GET all items for user - via home page and search
 router.get('/userItems', function(req, res) {
   console.log('req.query.user', req.query.user);
-  if (req.query.user !== undefined) {
+  console.log('passport user ', req.user.username);
+  if (req.isAuthenticated()){
+    if (req.query.user !== undefined) {
     items.find({
       user: req.query.user,
     }).then(function(data) {
@@ -106,6 +108,9 @@ router.get('/userItems', function(req, res) {
   } else {
     res.send("user is undefined");
   }
+} else {
+  res.sendStatus(403);
+    }
 }); // end GET Items route
 
 

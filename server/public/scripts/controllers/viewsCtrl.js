@@ -1,4 +1,4 @@
-myApp.controller('viewsController', function(postService, itemService) {
+myApp.controller('viewsController', function(itemService) {
 
   var vm = this;
 

@@ -1,3 +1,4 @@
+//Requires
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -6,7 +7,6 @@ var path = require('path');
 var items = require('./models/items.model.js');
 require('./modules/db.js');
 var port = process.env.PORT || 3004;
-
 var passport = require('./strategies/user.strategy');
 var session = require('express-session');
 
@@ -25,7 +25,7 @@ app.use(express.static(path.resolve('./server/public')));
 
 app.use(session({
    secret: 'secret',
-   key: 'user', // this is the name of the req.variable. 'user' is convention, but not required
+   key: 'user',           //name of the req.variable
    resave: 'true',
    saveUninitialized: false,
    cookie: { maxage: 60000, secure: false }
@@ -38,15 +38,12 @@ app.use(passport.session());
 // Routes
 app.use('/register', register);
 app.use('/user', user);
-
 app.use('/*', index);
 
 
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.resolve('./server/public/views/index.html'));
-});
 
+//listen on port
 app.listen(port, function() {
   console.log('server up port 3004');
 });

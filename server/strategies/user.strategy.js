@@ -24,33 +24,31 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-// Does actual work of logging in
-// Called by middleware stack
+
+// Logging on
 passport.use('local', new localStrategy({
   passReqToCallback: true,
   usernameField: 'username'
   }, function(req, username, password, done) {
-    // mongoose stuff
     User.findOne({username: username}, function(err, user) {
       if(err) {
         throw err;
       }
 
-      // user variable passed to us from Mongoose if it found a match to findOne() above
+
       if(!user) {
-        // user not found
+        // user not found in mongo
         console.log('userStrategy.js :: no user found');
         return done(null, false, {message: 'Incorrect credentials.'});
       } else {
-        // found user! Now check their given password against the one stored in the DB
-        // comparePassword() is defined in the schema/model file!
+        // user found - check password
         user.comparePassword(password, function(err, isMatch) {
           if(err) {
             throw err;
           }
 
           if(isMatch) {
-            // all good, populate user object on the session through serializeUser
+            // populate user object on the session through serializeUser
             console.log('userStrategy.js :: all good');
             return(done(null, user));
           } else {

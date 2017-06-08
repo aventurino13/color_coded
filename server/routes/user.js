@@ -38,19 +38,26 @@ router.post('/userItems', function(req, res) {
 
 //Delete item
 router.delete('/remove', function(req, res) {
-  console.log(req.query.id);
+  console.log('item id-->',req.query.id);
+  console.log('user making delete request-->',req.user.username);
+  if (req.user.username == req.body.user){
   items.remove({
-    _id: req.query.id
+    _id: req.query.id,
+    user: req.user.username
   }).then(function(data) {
     console.log(data);
     res.sendStatus(200);
   });
+} else {
+  res.sendStatus(403);
+}
 }); //end remove Items GET route
 
 //upvote item
 router.put('/upvote', function(req, res) {
   console.log(req.query.id);
   console.log(req.query.user);
+  if (req.isAuthenticated()){
   items.update(
     {_id: req.query.id} ,
     { $addToSet: {votes: req.query.user}
@@ -58,12 +65,15 @@ router.put('/upvote', function(req, res) {
     console.log(data);
     res.sendStatus(200);
   });
+} else {
+    res.sendStatus(403);
+  }
 }); //end remove Items GET route
 
 //GET items of certain type
 router.get('/Items', function(req, res) {
-  console.log('in req for type on server');
-  console.log(req.query.type);
+  console.log('in req for type on server for type-->', req.query.type);
+if (req.isAuthenticated()){
   if (req.query.type !== undefined) {
     items.find({
       type: req.query.type
@@ -77,6 +87,9 @@ router.get('/Items', function(req, res) {
       res.send(data);
     });
   }
+  } else {
+      res.sendStatus(403);
+    }
 }); // end GET Items route
 
 

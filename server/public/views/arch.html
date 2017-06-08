@@ -10,21 +10,21 @@
   </nav>
 <h1>Architecture</h1>
 
-<div ng-controller = "viewsController as x" ng-init = 'x.getArch()'>
-  <div class='container row'>
-  <div ng-repeat='thing in x.allArch' class="col-sm-12 col-md-6 col-lg-4">
-    <div class= "card" class="col-sm-12 col-md-6 col-lg-4">
-
-      <img class="photos" src= "{{thing.imgURL}}">
-      <span>
-      <h2>{{ thing.title }}</h3>
-      <a href="{{thing.linkURL}}"></a>
-      <p>{{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
-      </span>
-
+  <div ng-controller = "viewsController as x" ng-init = 'x.getArch()'>
+    <div class='container row'>
+    <div ng-repeat='thing in x.allArch' class="col-sm-6 col-md-4 col-lg-4">
+      <div class="outerCard" class="col-sm-6 col-md-4 col-lg-4">
+      <div class = "card" class="col-sm-6 col-md-4 col-lg-4">
+        <span>
+        <h3>{{ thing.title }}</h3>
+        </span>
+        <img src= "{{thing.imgURL}}"/>
       </div>
+        <a href="{{thing.linkURL}}"></a>
+        <p> Votes: {{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
       <p>{{thing.votes.length}}</p>
-<button ng-click='x.upVote(thing._id)'>+</button>
+      <button ng-click='x.upVote(thing._id)'>UPVOTE</button>
     </div>
-    </div>
+  </div>
+  </div>
   </div>

@@ -1,5 +1,18 @@
-myApp.service('getService', ['$http', function($http) {
+myApp.service('itemService', ['$http', function($http) {
 
+
+  this.addItem = function(itemToSend){
+    console.log('in addItems in service with itemToSend-->', itemToSend);
+    return $http({
+      method:'POST',
+      url:'/user/userItems',
+      data: itemToSend,
+    }).then(function( response ) {
+      console.log('get after add in controller', response );
+      return response;
+      // location.reload();
+    });
+  };//end addItem POST
 
 
   this.rmItem = function(itemId) {

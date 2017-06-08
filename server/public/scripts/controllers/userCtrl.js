@@ -1,9 +1,9 @@
-myApp.controller('UserController', function($location, postService, getService) {
+myApp.controller('UserController', function($location, itemService) {
   var vm = this;
 
 //   // Upon load, check this user's session on the server
 vm.checkUser = function () {
-  getService.getUser().then(function(response){
+  itemService.getUser().then(function(response){
   if(response.data.username) {
       // user has a curret session on the server
       vm.userName = response.data.username;
@@ -18,7 +18,7 @@ vm.checkUser = function () {
 };
 
 vm.logout = function() {
-  getService.logoutUser().then(function(response){
+  itemService.logoutUser().then(function(response){
       $location.path("/login");
   });
 
@@ -52,12 +52,12 @@ vm.logout = function() {
         user: vm.userName
         };
         console.log(itemToSend);
-      postService.addItem(itemToSend);
+      itemService.addItem(itemToSend);
     };//end add Item
 
 
     vm.getUserItems = function (){
-      getService.userItems(vm.userName).then(function(data){
+      itemService.userItems(vm.userName).then(function(data){
         console.log('in get user return', data);
         vm.archResult = [];
         vm.dsgnResult = [];
@@ -79,7 +79,7 @@ vm.logout = function() {
 
     };
           vm.deleteItem = function (id){
-            getService.rmItem(id).then(function(data){
+            itemService.rmItem(id).then(function(data){
               console.log('in .then delte return', data);
                 vm.getUserItems();
             });

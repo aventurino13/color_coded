@@ -1,9 +1,9 @@
-myApp.controller('viewsController', function(postService, getService) {
+myApp.controller('viewsController', function(postService, itemService) {
 
   var vm = this;
 
   vm.getArch = function (){
-    getService.getItems("arch").then(function(data){
+    itemService.getItems("arch").then(function(data){
       console.log('in get all arch return', data);
       vm.allArch = data;
     });
@@ -11,7 +11,7 @@ myApp.controller('viewsController', function(postService, getService) {
   };
 
   vm.getDsgn = function (){
-    getService.getItems("dsgn").then(function(data){
+    itemService.getItems("dsgn").then(function(data){
       console.log('in get all dsgn return', data);
       vm.allDsgn = data;
     });
@@ -19,7 +19,7 @@ myApp.controller('viewsController', function(postService, getService) {
   };
 
   vm.getArt = function (){
-    getService.getItems("art").then(function(data){
+    itemService.getItems("art").then(function(data){
       console.log('in get all art return', data);
       vm.allArt = data;
     });
@@ -28,12 +28,12 @@ myApp.controller('viewsController', function(postService, getService) {
 
 
   vm.upVote = function(itemId){
-    getService.getUser().then(function(data){
-      vm.user = data;
+    itemService.getUser().then(function(response){
+      vm.user = response.data.username;
       console.log("user who wants to vote", vm.user);
       return vm.user;
     });
-    getService.voteItem(itemId, vm.user).then(function(data){
+    itemService.voteItem(itemId, vm.user).then(function(data){
       console.log('in up vote item return', data);
       vm.getArch();
       vm.getDsgn();

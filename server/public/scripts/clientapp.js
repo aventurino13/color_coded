@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'angular-content-editable']);
+var myApp = angular.module('myApp', ['ngRoute', 'angular-content-editable','ui.bootstrap', 'bootstrapLightbox', 'xeditable']);
 
 myApp.config(function($routeProvider, $locationProvider){
   $routeProvider.when('/', {
@@ -27,6 +27,11 @@ myApp.config(function($routeProvider, $locationProvider){
     controller: 'searchController as uc'
   }).otherwise('/');
 
-    $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(true);
+
 
 });//end ang-route config
+
+myApp.run(function(editableOptions) {
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+});

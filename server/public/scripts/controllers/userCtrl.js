@@ -1,4 +1,4 @@
-myApp.controller('UserController', function($location, itemService) {
+myApp.controller('UserController', function($location, itemService, $scope) {
   var vm = this;
 
 //   // Upon load, check this user's session on the server
@@ -86,12 +86,14 @@ vm.logout = function() {
 
           };
 
-vm.changeTags = function(id){
-  vm.newTags = [vm.newTag1, vm.newTag2, vm.newTag3, vm.newTag4, vm.newTag5];
-  console.log('id-->', id);
-  console.log('newTags-->', vm.newTags);
-  itemService.editTags(id, vm.newTags);
+vm.updateTags = function (id, newTags) {
+    console.log(newTags);
+    console.log(id);
+  itemService.editTags(id, newTags).then(function(data){
+  console.log('in update tags return', data);
+  });
 };
+
 
 
     // vm.getUserItems();

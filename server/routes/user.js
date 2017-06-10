@@ -73,7 +73,7 @@ router.put('/upvote', function(req, res) {
   }
 }); //end remove Items GET route
 
-router.put('/user/editTags', function(req, res){
+router.put('/editTags', function(req, res){
   console.log(req.query.id);
   console.log(req.query.tags);
   items.update(

@@ -8,23 +8,24 @@
       <a href="/search"> search</a>
     </ul>
   </nav>
+
+
 <h1>Architecture</h1>
+<div ng-controller = "viewsController as x" ng-init = 'x.getArt()'>
+  <div class='container row'>
+  <div ng-repeat='thing in x.allArt' class="col-sm-6 col-md-4 col-lg-4">
+    <div class="outerCardArt" class="col-sm-6 col-md-4 col-lg-4">
+    <div class = "card" class="col-sm-6 col-md-4 col-lg-4">
 
-  <div ng-controller = "viewsController as x" ng-init = 'x.getArch()'>
-    <div class='container row'>
-    <div ng-repeat='thing in x.allArch' class="col-sm-6 col-md-4 col-lg-4">
-      <div class="outerCard" class="col-sm-6 col-md-4 col-lg-4">
-      <div class = "card" class="col-sm-6 col-md-4 col-lg-4">
+      <h3>{{ thing.title }}</h3>
 
-        <h3>{{ thing.title }}</h3>
-
-        <img src= "{{thing.imgURL}}"/>
-      </div>
-        <a href="{{thing.linkURL}}"></a>
-        <p> Tags: {{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
-      <p> Votes: {{thing.votes.length}}</p>
-      <button ng-click='x.upVote(thing._id)'>UPVOTE</button>
+      <img src= "{{thing.imgURL}}"/>
     </div>
+      <a href="{{thing.linkURL}}"></a>
+      <p> Tags: {{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
+    <p>Votes: {{thing.votes.length}}</p>
+    <button ng-click='x.upVote(thing._id)'>UPVOTE</button>
   </div>
-  </div>
-  </div>
+</div>
+</div>
+</div>

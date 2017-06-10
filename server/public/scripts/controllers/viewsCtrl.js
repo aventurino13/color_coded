@@ -2,6 +2,10 @@ myApp.controller('viewsController', function(itemService) {
 
   var vm = this;
 
+  vm.allArch=[];
+  vm.allArt=[];
+  vm.allDsign=[];
+
   vm.getArch = function (){
     itemService.getItems("arch").then(function(data){
       console.log('in get all arch return', data);
@@ -40,5 +44,6 @@ myApp.controller('viewsController', function(itemService) {
       vm.getArt();
     });
   };
+
 
 });

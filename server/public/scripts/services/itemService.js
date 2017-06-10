@@ -103,11 +103,21 @@ myApp.service('itemService', ['$http', function($http) {
   };
 
 this.editTags = function(itemId, newTags){
+  console.log('in edit tags in items service itemId, newTags-->', itemId, newTags);
+  var tagArray = [];
+  for (var i =0; i < newTags.length; i++) {
+    if (newTags[i] == "null" || ""){
+      newTags[i] = null;
+      tagArray.push(newTags[i]);
+    } else {
+      tagArray.push(newTags[i]);
+    }
+  }
   return $http({
     method: 'PUT',
     url:'/user/editTags',
     params: {
-      tags: newTags,
+      tags: tagArray,
       id: itemId
     }
     }).then(function(response) {

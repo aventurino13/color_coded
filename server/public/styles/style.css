@@ -1,59 +1,51 @@
-
 img {
-  width: inherit;
-}
-
-.card {
-  height: 300px;
-  margin: 5px;
-  overflow: hidden;
-  z-index: -100;
-  border: 1px black solid;
+  max-width: 450px;
+  max-height: 450px;
+  opacity: 0.75;
 }
 
 .outerCard {
-  height: 475px;
-  padding: 5px;
-  margin: 5px;
-  overflow: hidden;
-  z-index: -100;
-  border: 1px grey dotted;
+  height: auto;
+  padding: 30px;
+  margin: 10px;
+  border: 1px black dotted;
 }
+
+.outerCardArch {
+  height: auto;
+  padding: 40px;
+  margin: 20px;
+  border: 1px #DF5A49 solid;
+}
+
+.outerCardArt {
+  height: auto;
+  padding: 40px;
+  margin: 20px;
+  border: 1px #45B29D solid;
+}
+
+.outerCardDsgn {
+  height: auto;
+  padding: 40px;
+  margin: 20px;
+  border: 1px #EFC94C solid;
+}
+
 
 .addContainer {
   height: 300px;
   padding: 10px;
   margin: 50px;
   overflow: hidden;
-  z-index: -100;
   border: 1px grey dotted;
   text-align: center;
 }
 
-.card:hover {
+img:hover {
   z-index: 100;
-  transform:scale(2,2);
-  backface-visibility: hidden;
-}
-
-.card span {
-  z-index: -100;
-  display: none;
-}
-
-.card:hover span {
-  overflow: hidden;
-}
-
-.card img {
-  opacity: 0.25;
-  z-index: -200;
-}
-
-
-.card:hover img {
   opacity: 1;
-  z-index: inherit;
+  transform:scale(1.1,1.1);
 }
 
 #search {
@@ -62,7 +54,8 @@ img {
 }
 
 body {
-  font-family: 'Karla', sans-serif; }
+  font-family: 'Karla', sans-serif;
+}
 
 nav {
   margin: 15px;
@@ -85,5 +78,8 @@ h1 {
   margin-top: 30px;
   font-family: 'Bubbler One', sans-serif;
   font-size: 80px;
+}
 
-/*# sourceMappingURL=style.css.map */
+h3 {
+  background-color: inherit;
+}

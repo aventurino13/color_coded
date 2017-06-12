@@ -53,6 +53,7 @@ vm.logout = function() {
         };
         console.log(itemToSend);
       itemService.addItem(itemToSend);
+      vm.showAlert();
     };//end add Item
 
 
@@ -94,8 +95,21 @@ vm.updateTags = function (id, newTags) {
   });
 };
 
+vm.showAlert = function (){
 
+$scope.alerts = [
+  { type: 'success', msg: 'Your image as been added!' }
+];
+$scope.show = true;
+};
 
+$scope.addAlert = function() {
+  $scope.alerts.push({msg: 'Another alert!'});
+};
+
+$scope.closeAlert = function(index) {
+  $scope.alerts.splice(index, 1);
+};
     // vm.getUserItems();
 
 vm.checkUser();

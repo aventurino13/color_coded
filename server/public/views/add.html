@@ -12,6 +12,15 @@
     </ul>
   </nav>
 <div ng-controller = "UserController as uc" ng-init = 'uc.getItems(favs)'>
+  <script type="text/ng-template" id="alert.html">
+    <div ng-transclude></div>
+  </script>
+
+  <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'success')" ng-if="show" close="closeAlert($index)"  dismiss-on-timeout="4000">{{alert.msg}}</div>
+
+
+</div>
+
   <div class='container row'>
   <div class="addContainer" class="col-sm-6 col-md-6 col-lg-6">
 <div class="addForm">

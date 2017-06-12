@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'angular-content-editable','xeditable', 'ui.bootstrap']);
+var myApp = angular.module('myApp', ['ngRoute', 'angular-content-editable','xeditable', 'ui.bootstrap', 'ngAnimate', 'ngSanitize']);
 
 myApp.config(function($routeProvider, $locationProvider){
   $routeProvider.when('/', {
@@ -32,7 +32,7 @@ myApp.config(function($routeProvider, $locationProvider){
 
 });//end ang-route config
 
-app.run(function(editableOptions, editableThemes) {
+myApp.run(function(editableOptions, editableThemes) {
   // set `default` theme
   editableOptions.theme = 'bs2';
 
@@ -40,6 +40,11 @@ app.run(function(editableOptions, editableThemes) {
   // editableThemes['default'].submitTpl = '<button type="submit">ok</button>';
 });
 
-// myApp.run(function(editableOptions) {
-//   editableOptions.theme = 'bs2'; // bootstrap3 theme. Can be also 'bs2', 'default'
-// });
+// myApp.run(["$templateCache", function($templateCache) {
+//   $templateCache.put("/vendors/alert/alert.html",
+//     "<div class='alert' ng-class='type && \"alert-\" + type'>\n" +
+//     "    <button ng-show='closeable' type='button' class='close' ng-click='close()'>&times;</button>\n" +
+//     "    <div ng-transclude></div>\n" +
+//     "</div>\n" +
+//     "");
+// }]);

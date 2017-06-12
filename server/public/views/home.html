@@ -49,7 +49,7 @@
           <ul ng-repeat="tag in thing.tags track by $index">
             <a href="#" editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == null" onaftersave="x.updateTags(thing._id, thing.tags)">{{tag}}</a>
           </ul>
-          <!-- <button ng-click='x.updateTags(thing._id, thing.tags)'>Update Tags</button> -->
+          <!-- <button ng-click='x.addTag(thing._id, thing.tags)'>Add Tag</button> -->
           <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
           <a class="btn btn-primary" target="_blank" ng-href="{{thing.linkURL}}">Link</a>
         </div>

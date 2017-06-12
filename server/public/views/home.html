@@ -1,85 +1,82 @@
-
-
 <nav>
-    <ul>
-      <a href="/home"> home</a>
-      <a href="/add">  add </a>
-      <a href="/arch">  arch</a>
-      <a href="/dsgn">  dsgn  </a>
-      <a href="/art">  art  </a>
-      <a href="/search"> search</a>
-    </ul>
-  </nav>
+  <ul>
+    <a href="/home"> home</a>
+    <a href="/add">  add </a>
+    <a href="/arch">  arch</a>
+    <a href="/dsgn">  dsgn  </a>
+    <a href="/art">  art  </a>
+    <a href="/search"> search</a>
+  </ul>
+</nav>
 
 
 
-<div ng-controller="UserController as x" >
+<div ng-controller="UserController as x">
   <h1> welcome {{x.userName}}</h1>
 
-<div class="archDiv col-sm-12 col-md-12 col-lg-12">
-  <h2>Architecture</h2>
-  <div ng-repeat='thing in x.archResult' class ="container-fluid outerCardArch col-sm-10 col-md-10 col-lg-10">
-    <div class ="row">
-      <div class = "imgCard col-sm-6 col-md-6 col-lg-6">
-        <img src= "{{thing.imgURL}}" />
-      </div>
-      <div class= "contentCard col-sm-6 col-md-6 col-lg-6">
-        <h3>{{ thing.title }}</h3>
-        <p>Votes: {{thing.votes.length}}</p>
-        <!-- ng-mousedown="openTab()" -->
-        <ul ng-repeat="tag in thing.tags track by $index">
-          <span editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == null">{{tag}}</span>
-        </ul>
-        <button ng-click='x.updateTags(thing._id, thing.tags)'>Update Tags</button>
-        <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
-        <a class="btn btn-primary" href="{{thing.linkURL}}" target="_self" ng-click="openLink(thing.linkURL)" >Link</a>
-      </div>
-      </div>
-    </div>
-</div>
-
-<div class="dsgnDiv col-sm-12 col-md-12 col-lg-12">
-    <h2>Design</h2>
-    <div ng-repeat='thing in x.dsgnResult' class ="container-fluid outerCardDsgn col-sm-10 col-md-10 col-lg-10">
-      <div class ="row">
-        <div class = "imgCard col-sm-6 col-md-6 col-lg-6">
-          <img src= "{{thing.imgURL}}" />
+  <div class="archDiv col-sm-12 col-md-12 col-lg-12">
+    <h2>Architecture</h2>
+    <div ng-repeat='thing in x.archResult | orderBy:"-votes.length"' class="container-fluid outerCardArch col-sm-10 col-md-10 col-lg-10">
+      <div class="row">
+        <div class="imgCard col-sm-11 col-md-8 col-lg-7">
+          <img src="{{thing.imgURL}}" />
         </div>
-        <div class= "contentCard col-sm-6 col-md-6 col-lg-6">
+        <div class="contentCard col-sm-11 col-md-3 col-lg-4">
           <h3>{{ thing.title }}</h3>
           <p>Votes: {{thing.votes.length}}</p>
-          <!-- ng-mousedown="openTab()" -->
-          <ul ng-repeat="tag in thing.tags track by $index" >
+          <ul ng-repeat="tag in thing.tags track by $index">
             <span editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == null">{{tag}}</span>
           </ul>
           <button ng-click='x.updateTags(thing._id, thing.tags)'>Update Tags</button>
           <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
-          <a class="btn btn-primary" target="_blank" ng-href="{{thing.linkURL}}" >Link</a>
+          <a class="btn btn-primary" target="_blank" ng-href="{{thing.linkURL}}">Link</a>
         </div>
-        </div>
-      </div>
-</div>
-
-<div class="artDiv col-sm-12 col-md-12 col-lg-12">
-  <h2>Art</h2>
-  <div ng-repeat='thing in x.artResult' class ="container-fluid outerCardArt col-sm-10 col-md-10 col-lg-10">
-    <div class ="row">
-      <div class = "imgCard col-sm-6 col-md-6 col-lg-6">
-        <img src= "{{thing.imgURL}}" />
-      </div>
-      <div class= "contentCard col-sm-6 col-md-6 col-lg-6">
-        <h3>{{ thing.title }}</h3>
-        <p>Votes: {{thing.votes.length}}</p>
-        <!-- ng-mousedown="openTab()" -->
-        <ul ng-repeat="tag in thing.tags track by $index">
-          <span editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == null">{{tag}}</span>
-        </ul>
-        <button ng-click='x.updateTags(thing._id, thing.tags)'>Update Tags</button>
-        <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
-        <a class="btn btn-primary" target="_blank" ng-href="{{thing.linkURL}}" >Link</a>
-      </div>
       </div>
     </div>
-</div>
+  </div>
+
+  <div class="dsgnDiv col-sm-12 col-md-12 col-lg-12">
+    <h2>Design</h2>
+    <div ng-repeat='thing in x.dsgnResult | orderBy:"-votes.length"' class="container-fluid outerCardDsgn col-sm-10 col-md-10 col-lg-10">
+      <div class="row">
+        <div class="imgCard col-sm-11 col-md-8 col-lg-7">
+          <img src="{{thing.imgURL}}" />
+        </div>
+        <div class="contentCard col-sm-11 col-md-3 col-lg-4">
+          <h3>{{ thing.title }}</h3>
+          <p>Votes: {{thing.votes.length}}</p>
+          <!-- ng-mousedown="openTab()" -->
+          <ul ng-repeat="tag in thing.tags track by $index">
+            <a href="#" editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == null" onaftersave="x.updateTags(thing._id, thing.tags)">{{tag}}</a>
+          </ul>
+          <!-- <button ng-click='x.updateTags(thing._id, thing.tags)'>Update Tags</button> -->
+          <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
+          <a class="btn btn-primary" target="_blank" ng-href="{{thing.linkURL}}">Link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="artDiv col-sm-12 col-md-12 col-lg-12">
+    <h2>Art</h2>
+    <div ng-repeat='thing in x.artResult | orderBy:"-votes.length"' class="container-fluid outerCardArt col-sm-10 col-md-10 col-lg-10">
+      <div class="row">
+        <div class="imgCard col-sm-11 col-md-8 col-lg-7">
+          <img src="{{thing.imgURL}}" />
+        </div>
+        <div class="contentCard col-sm-11 col-md-3 col-lg-4">
+          <h3>{{ thing.title }}</h3>
+          <p>Votes: {{thing.votes.length}}</p>
+          <!-- ng-mousedown="openTab()" -->
+          <ul ng-repeat="tag in thing.tags track by $index">
+            <span editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == null">{{tag}}</span>
+          </ul>
+          <button ng-click='x.updateTags(thing._id, thing.tags)'>Update Tags</button>
+          <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
+          <a class="btn btn-primary" target="_blank" ng-href="{{thing.linkURL}}">Link</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>

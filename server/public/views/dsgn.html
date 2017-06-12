@@ -8,25 +8,31 @@
       <a href="/search"> search</a>
     </ul>
   </nav>
+<!-- ngRepeat: thing in x.allDsgn | orderBy:"[$index].votes.length" -->
 
 <h1>Design</h1>
-
+<div class="dsgnDiv col-sm-12 col-md-12 col-lg-12">
 <div ng-controller = "viewsController as x" ng-init = 'x.getDsgn()'>
-  <div class='container row'>
-  <div ng-repeat='thing in x.allDsgn' class="col-sm-6 col-md-4 col-lg-4">
-    <div class="outerCardDsgn" class="col-sm-6 col-md-4 col-lg-4">
-    <div class = "card" class="col-sm-6 col-md-4 col-lg-4">
-
+  <div ng-repeat='thing in x.allDsgn | orderBy:"-votes.length"'  class ="container-fluid outerCardDsgn col-sm-10 col-md-10 col-lg-10">
+    <div class ="row">
+      <div class = "imgCard col-sm-11 col-md-8 col-lg-7">
+        <img src= "{{thing.imgURL}}" />
+      </div>
+<div class= "contentCard col-sm-11 col-md-3 col-lg-4">
       <h3>{{ thing.title }}</h3>
-
-      <img src= "{{thing.imgURL}}"/>
-
-</div>
+      <p>Votes: {{thing.votes.length}}</p>
       <a href="{{thing.linkURL}}"></a>
-      <p> Tags: {{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
-    <p>Votes: {{thing.votes.length}}</p>
+      <ul ng-repeat="tag in thing.tags track by $index">
+        <span ng-hide="thing.tags[$index] == null ">{{tag}}</span>
+      </ul>
     <button ng-click='x.upVote(thing._id)'>UPVOTE</button>
   </div>
 </div>
+</div>
+</div>
+</div>
+
+
+
 </div>
 </div>

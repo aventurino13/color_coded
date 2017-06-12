@@ -4,6 +4,14 @@ img {
   opacity: 0.75;
 }
 
+.imgCard {
+
+}
+
+.contentCard{
+  float: left;
+}
+
 .outerCard {
   height: auto;
   padding: 30px;
@@ -32,6 +40,12 @@ img {
   border: 1px #EFC94C solid;
 }
 
+.outerCardSrch {
+  height: auto;
+  padding: 40px;
+  margin: 20px;
+  border: 1px grey solid;
+}
 
 .addContainer {
   height: 300px;

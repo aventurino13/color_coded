@@ -10,31 +10,51 @@
   </nav>
 
 <div ng-controller = "searchController as sc" >
+
+  <div class="inputDiv">
   <input ng-model="sc.searchTag" type="text" value="" placeholder="search by tag phrases...">
- <button ng-click="sc.findTags()" class='btn btn-success' type="button" name="button">Search Tags</button>
- <input ng-model="sc.searchUser" type="text" value="" placeholder="search by user...">
- <button ng-click="sc.findUser()" class='btn btn-success' type="button" name="button">Search Users</button>
- <div ng-repeat ="tag in sc.tagResponse track by $index">
-   <div class= "card" class="col-sm-12 col-md-6 col-lg-4" id="search">
-
-     <img src= "{{tag.imgURL}}"/>
-     <span>
-     <h2>{{ thing.title }}</h3>
-     <a href="{{tag.linkURL}}"></a>
-     <p> Tags: {{ tag.tags[0]}} {{ tag.tags[1]}} {{ tag.tags[2]}} {{ tag.tags[3]}} {{ tag.tags[4]}}</p>
-     </span>
-   </div>
-</div>
-
-<div ng-repeat ="thing in sc.srchResults track by $index">
-  <div class= "card" class="col-sm-12 col-md-6 col-lg-4" id="search">
-    <img src= "{{thing.imgURL}}"/>
-    <span>
-    <h2>{{ thing.title }}</h3>
-    <a href="{{thing.linkURL}}"></a>
-    <p> Tags {{ thing.tags[0]}} {{ thing.tags[1]}} {{ thing.tags[2]}} {{ thing.tags[3]}} {{ thing.tags[4]}}</p>
-    </span>
+  <button ng-click="sc.findTags()" class='btn btn-success' type="button" name="button">Search Tags</button>
+  <input ng-model="sc.searchUser" type="text" value="" placeholder="search by user...">
+  <button ng-click="sc.findUser()" class='btn btn-success' type="button" name="button">Search Users</button>
   </div>
 
-</div>
+<div class="searchDiv col-sm-12 col-md-12 col-lg-12">
+ <div ng-repeat ="thing in sc.tagResponse track by $index | orderBy:'votes.length'" class ="container-fluid outerCardSrch col-sm-11 col-md-11 col-lg-11">
+   <div class ="row">
+     <div class = "imgCard col-sm-11 col-md-8 col-lg-7" >
+       <img src= "{{thing.imgURL}}" />
+     </div>
+     <div class= "contentCard col-sm-11 col-md-3 col-lg-4">
+     <h3>{{ thing.title }}</h3>
+     <p>Votes: {{thing.votes.length}}</p>
+     <a href="{{thing.linkURL}}"></a>
+     <ul ng-repeat="tag in thing.tags track by $index">
+       <span ng-hide="thing.tags[$index] == null">{{tag}}</span>
+     </ul>
+     <button ng-click='sc.upVote(tag._id)'>UPVOTE</button>
+     </div>
+     </div>
+     </div>
+     </div>
+
+<div class="searchDiv col-sm-12 col-md-12 col-lg-12">
+     <div ng-repeat ="thing in sc.srchResults track by $index" class ="container-fluid outerCardSrch col-sm-10 col-md-10 col-lg-10">
+       <div class ="row">
+         <div class = "imgCard col-sm-11 col-md-8 col-lg-7" >
+           <img src= "{{thing.imgURL}}" />
+         </div>
+         <div class= "contentCard col-sm-11 col-md-3 col-lg-4">
+         <h3>{{ thing.title }}</h3>
+         <p>Votes: {{thing.votes.length}}</p>
+         <a href="{{thing.linkURL}}"></a>
+         <ul ng-repeat="tag in thing.tags track by $index">
+           <span ng-hide="thing.tags[$index] == null">{{tag}}</span>
+         </ul>
+         <button ng-click='sc.upVote(tag._id)'>UPVOTE</button>
+         </div>
+         </div>
+         </div>
+       </div>
+
+
 </div>

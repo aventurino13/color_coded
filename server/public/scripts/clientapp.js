@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'angular-content-editable','ui.bootstrap', 'bootstrapLightbox', 'xeditable']);
+var myApp = angular.module('myApp', ['ngRoute', 'angular-content-editable','xeditable', 'ui.bootstrap']);
 
 myApp.config(function($routeProvider, $locationProvider){
   $routeProvider.when('/', {
@@ -32,6 +32,14 @@ myApp.config(function($routeProvider, $locationProvider){
 
 });//end ang-route config
 
-myApp.run(function(editableOptions) {
-  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+app.run(function(editableOptions, editableThemes) {
+  // set `default` theme
+  editableOptions.theme = 'bs2';
+
+  // overwrite submit button template
+  // editableThemes['default'].submitTpl = '<button type="submit">ok</button>';
 });
+
+// myApp.run(function(editableOptions) {
+//   editableOptions.theme = 'bs2'; // bootstrap3 theme. Can be also 'bs2', 'default'
+// });

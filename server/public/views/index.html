@@ -48,10 +48,14 @@
 </head>
 
 <body ng-app="myApp">
+  <header ng-include="'/views/templates/header.html'"></header>
 
   <div ng-controller="UserController as x">
-    <button class="btn btn-default" ng-click="x.logout()">Log Out</button>
+    <button id="logoutButton" class="btn btn-default" ng-click="x.logout()">Log Out</button>
   </div>
+  <script type="text/ng-template" id="alert.html">
+    <div ng-transclude></div>
+  </script>
   <ng-view></ng-view>
 </body>
 

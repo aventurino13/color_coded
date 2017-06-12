@@ -1,18 +1,6 @@
-<nav>
-  <ul>
-    <a href="/home"> home</a>
-    <a href="/add">  add </a>
-    <a href="/arch">  arch</a>
-    <a href="/dsgn">  dsgn  </a>
-    <a href="/art">  art  </a>
-    <a href="/search"> search</a>
-  </ul>
-</nav>
-
-
 
 <div ng-controller="UserController as x">
-  <h1> welcome {{x.userName}}</h1>
+  <p> welcome {{x.userName}}</p>
 
   <div class="archDiv col-sm-12 col-md-12 col-lg-12">
     <h2>Architecture</h2>
@@ -25,7 +13,7 @@
           <h3>{{ thing.title }}</h3>
           <p>Votes: {{thing.votes.length}}</p>
           <ul ng-repeat="tag in thing.tags track by $index">
-              <a href="#" editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == 'null'" onaftersave="x.updateTags(thing._id, thing.tags)">{{tag}}</a>
+              <a class="tagLinks" href="#" editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == 'null'" onaftersave="x.updateTags(thing._id, thing.tags)">{{tag}}</a>
           </ul>
           <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
           <a class="btn btn-primary" target="_blank" ng-href="{{thing.linkURL}}">Link</a>
@@ -46,7 +34,7 @@
           <p>Votes: {{thing.votes.length}}</p>
           <!-- ng-mousedown="openTab()" -->
           <ul ng-repeat="tag in thing.tags track by $index">
-            <a href="#" editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == 'null'" onaftersave="x.updateTags(thing._id, thing.tags)">{{tag}}</a>
+            <a class="tagLinks" href="#" editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == 'null'" onaftersave="x.updateTags(thing._id, thing.tags)">{{tag}}</a>
           </ul>
 
           <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>
@@ -68,7 +56,7 @@
           <p>Votes: {{thing.votes.length}}</p>
           <!-- ng-mousedown="openTab()" -->
           <ul ng-repeat="tag in thing.tags track by $index">
-              <a href="#" editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == 'null'" onaftersave="x.updateTags(thing._id, thing.tags)">{{tag}}</a>
+              <a class="tagLinks" href="#" editable-text="thing.tags[$index]" ng-hide="thing.tags[$index] == 'null'" onaftersave="x.updateTags(thing._id, thing.tags)">{{tag}}</a>
           </ul>
 
           <button ng-click='x.deleteItem(thing._id)'>Remove Item</button>

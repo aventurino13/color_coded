@@ -1,28 +1,20 @@
 
 <script src="https://static.filestackapi.com/v3/filestack-0.6.2.js"></script>
-
-<nav>
-    <ul>
-      <a href="/home"> home</a>
-      <a href="/add">  add </a>
-      <a href="/arch">  arch</a>
-      <a href="/dsgn">  dsgn  </a>
-      <a href="/art">  art  </a>
-      <a href="/search"> search</a>
-    </ul>
-  </nav>
-<div ng-controller = "UserController as uc" ng-init = 'uc.getItems(favs)'>
-  <script type="text/ng-template" id="alert.html">
+<div class="addDiv col-sm-12 col-md-12 col-lg-12">
+<div ng-controller = "UserController as uc" >
+  <!-- <script type="text/ng-template" id="alert.html">
     <div ng-transclude></div>
-  </script>
-
-  <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'success')" ng-if="show" close="closeAlert($index)"  dismiss-on-timeout="4000">{{alert.msg}}</div>
+  </script> -->
 
 
-</div>
+
+
+
 
   <div class='container row'>
+    <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'success')" ng-if="show" close="closeAlert($index)"  dismiss-on-timeout="4000">{{alert.msg}}</div>
   <div class="addContainer" class="col-sm-6 col-md-6 col-lg-6">
+    <h3>Add a photo to share...</h3>
 <div class="addForm">
 <input type="button" ng-model='uc.imgUpld' value=" Click to Upload Image" ng-click="uc.showPicker()" />
 <select ng-model="uc.type" name="type">
@@ -56,3 +48,4 @@
 </div>
 </div>
   </div>
+</div>

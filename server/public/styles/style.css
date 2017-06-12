@@ -1,4 +1,4 @@
-img {
+.imgCard img {
   max-width: 450px;
   max-height: 450px;
   opacity: 0.75;
@@ -8,8 +8,17 @@ img {
 
 }
 
+.tagLinks{
+font-family: 'Karla', sans-serif;
+font-size: 30px;
+color: white;
+text-decoration: none;
+}
+
 .contentCard{
   float: left;
+  overflow: visible;
+
 }
 
 .outerCard {
@@ -23,8 +32,9 @@ img {
   height: auto;
   padding: 40px;
   margin: 20px;
-  border: 2px #DF5A49 solid;
-  background-color: #E2B297;
+  border-right: 2px #FC4349 solid;
+  border-bottom: 3px #FC4349 solid;
+  background-color: #FFB3A8;
   /*opacity: 0.5;*/
 }
 
@@ -32,7 +42,8 @@ img {
   height: auto;
   padding: 40px;
   margin: 20px;
-  border: 2px #45B29D solid;
+  border-right: 2px #45B29D solid;
+  border-bottom: 3px #45B29D solid;
   background-color: #82B2A9;
 }
 
@@ -40,9 +51,9 @@ img {
   height: auto;
   padding: 40px;
   margin: 20px;
-  border-right: 3px #EFC94C solid;
-  border-bottom: 3px #EFC94C solid;
-  background-color:#EFDFAC;
+  border-right: 2px #EFC94C solid;
+  border-bottom: 3px #FFAB3B solid;
+  background-color:#FFD296;
 }
 
 .outerCardSrch {
@@ -53,18 +64,22 @@ img {
 }
 
 .addContainer {
-  height: 300px;
-  padding: 10px;
+  height: inherit;
+  padding: 100px;
   margin: 50px;
-  overflow: hidden;
+
   border: 1px grey dotted;
   text-align: center;
 }
 
-img:hover {
+.imgCard img:hover {
   z-index: 100;
   opacity: 1;
   transform:scale(1.1,1.1);
+}
+
+#logoutButton{
+  float: right;
 }
 
 #search {
@@ -74,31 +89,30 @@ img:hover {
 
 body {
   font-family: 'Karla', sans-serif;
+  margin-left: 30px;
 }
 
 nav {
   margin: 15px;
   height: 150px;
-  background-image: url("narrow.png");
-  background-repeat: no-repeat;
-  background-position: left;
   text-align: right;
-  font-family: 'Bubbler One', sans-serif;
+  font-family: 'Karla', sans-serif;
   font-size: 30px; }
 
   h2 {
     margin-top: 30px;
-    font-family: 'Bubbler One', sans-serif;
+    font-family: 'Karla', sans-serif;
     font-size: 50px;
   }
 
 h1 {
   text-align: center;
   margin-top: 30px;
-  font-family: 'Bubbler One', sans-serif;
+  font-family: 'Karla', sans-serif;
   font-size: 80px;
 }
 
 h3 {
   background-color: inherit;
+  font-size: 40px;
 }

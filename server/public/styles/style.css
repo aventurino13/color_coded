@@ -8,6 +8,9 @@
 
 }
 
+
+
+
 .tagLinks{
 font-family: 'Karla', sans-serif;
 font-size: 30px;
@@ -80,6 +83,7 @@ text-decoration: none;
 
 #logoutButton{
   float: right;
+  margin-right: inherit;
 }
 
 .inputDiv {
@@ -87,9 +91,28 @@ text-decoration: none;
 
 }
 
+#naveBar nav ul a:before{
+  text-decoration: none;
+  color: black;
+}
+nav a:after{
+  text-decoration: none;
+  color: black;
+}
+
+nav a:active{
+  text-decoration: none;
+  color: black;
+}
+
 body {
     font-family: 'Karla', sans-serif;
-  margin-left: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+#name {
+  display: none;
 }
 
 #header{
@@ -114,8 +137,9 @@ nav {
 
   h2 {
     margin-top: 30px;
-    font-family: 'Poiret One', cursive;
-    font-size: 50px;
+    font-family: 'Karla', sans-serif;
+    font-size: 70px;
+
   }
 
 h1 {
@@ -128,5 +152,13 @@ h1 {
 h3 {
   background-color: inherit;
   font-size: 40px;
-  font-family: 'Poiret One', cursive;
+  font-family: 'Karla', sans-serif;
+  font-style: oblique;
+}
+
+h4 {
+  text-align: center;
+  color: grey;
+  font-family: 'Karla', sans-serif;
+  font-size: 40px;
 }

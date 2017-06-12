@@ -1,7 +1,7 @@
 
 
 
-<h1>Architecture</h1>
+<h2>Architecture</h2>
 <div class="archDiv col-sm-12 col-md-12 col-lg-12">
 <div ng-controller = "viewsController as x" ng-init = 'x.getArch()'>
 
@@ -16,10 +16,10 @@
         <img src= "{{thing.imgURL}}" />
       </div>
 <div class= "contentCard col-sm-11 col-md-3 col-lg-4">
-      <h3>{{ thing.title }}</h3>
-      <p>Votes: {{thing.votes.length}}</p>
-      <a href="{{thing.linkURL}}"></a>
-      <ul ng-repeat="tag in thing.tags track by $index">
+      <span><h3>{{ thing.title }}</h3>
+      <h4>| {{thing.votes.length}} |</h4>
+      </span>
+      <ul class="tagLinks" ng-repeat="tag in thing.tags track by $index">
         <span ng-hide="thing.tags[$index] == 'null'">{{tag}}</span>
       </ul>
     <button ng-click='x.upVote(thing._id)'>UPVOTE</button>

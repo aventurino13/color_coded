@@ -6,10 +6,10 @@
     <h2>Architecture</h2>
     <div ng-repeat='thing in x.archResult | orderBy:"-votes.length"' class="container-fluid outerCardArch col-sm-10 col-md-10 col-lg-10">
       <div class="row">
-        <div class="imgCard col-sm-11 col-md-8 col-lg-7">
+        <div class="imgCard col-sm-11 col-md-7 col-lg-7">
           <img src="{{thing.imgURL}}" />
         </div>
-        <div class="contentCard col-sm-11 col-md-3 col-lg-4">
+        <div class="contentCard col-sm-11 col-md-4 col-lg-4">
           <h3>{{ thing.title }}</h3>
           <p>Votes: {{thing.votes.length}}</p>
           <ul ng-repeat="tag in thing.tags track by $index">

@@ -16,8 +16,7 @@ myApp.controller('searchController', function(itemService) {
     itemService.userItems(vm.searchUser).then(function(response){
       vm.srchResults = response;
     });
-    vm.srchResults = '';
-    vm.srchUser = '';
+    vm.searchUser = '';
   };
 
 });//end search controller

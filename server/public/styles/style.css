@@ -82,26 +82,39 @@ text-decoration: none;
   float: right;
 }
 
-#search {
-  margin-right: 75px;
-  margin-left: 75px;
+.inputDiv {
+  text-align: center;
+
 }
 
 body {
-  font-family: 'Karla', sans-serif;
+    font-family: 'Karla', sans-serif;
   margin-left: 30px;
+}
+
+#header{
+  margin-top: 20px;
+}
+
+#navBar{
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 nav {
   margin: 15px;
-  height: 150px;
-  text-align: right;
-  font-family: 'Karla', sans-serif;
+  color: black;
+  text-transform: lowercase;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Poiret One', cursive;
   font-size: 30px; }
 
   h2 {
     margin-top: 30px;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Poiret One', cursive;
     font-size: 50px;
   }
 
@@ -115,4 +128,5 @@ h1 {
 h3 {
   background-color: inherit;
   font-size: 40px;
+  font-family: 'Poiret One', cursive;
 }

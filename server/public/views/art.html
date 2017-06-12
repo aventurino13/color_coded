@@ -3,11 +3,9 @@
 <h1>Art</h1>
   <div class="artDiv col-sm-12 col-md-12 col-lg-12">
   <div ng-controller = "viewsController as x" ng-init = 'x.getArt()'>
-    <script type="text/ng-template" id="alert.html">
-      <div ng-transclude></div>
-    </script>
 
-    <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'success')" ng-if="show" close="closeAlert($index)"  dismiss-on-timeout="4000">{{alert.msg}}</div>
+
+    <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'success')" ng-if="show" close="closeAlert($index)" >{{alert.msg}}</div>
 
 
 

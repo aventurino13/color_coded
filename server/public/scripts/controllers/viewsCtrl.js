@@ -45,6 +45,7 @@ myApp.controller('viewsController', function(itemService, $scope) {
       vm.showAlert();
     });
   };
+
   vm.showAlert = function (){
 
   $scope.alerts = [

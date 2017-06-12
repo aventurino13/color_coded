@@ -95,6 +95,7 @@ vm.updateTags = function (id, newTags) {
   });
 };
 
+
 vm.showAlert = function (){
 
 $scope.alerts = [

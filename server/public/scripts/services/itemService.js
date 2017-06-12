@@ -106,7 +106,7 @@ this.editTags = function(itemId, newTags){
   console.log('in edit tags in items service itemId, newTags-->', itemId, newTags);
   var tagArray = [];
   for (var i =0; i < newTags.length; i++) {
-    if (newTags[i] == "null" || ""){
+    if (newTags[i] == "null" || "" || undefined){
       newTags[i] = null;
       tagArray.push(newTags[i]);
     } else {

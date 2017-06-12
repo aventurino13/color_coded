@@ -20,7 +20,7 @@
   <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'success')" ng-if="show" close="closeAlert($index)"  dismiss-on-timeout="4000">{{alert.msg}}</div>
 
 
-</div>
+
   <div ng-repeat='thing in x.allDsgn | orderBy:"-votes.length"'  class ="container-fluid outerCardDsgn col-sm-10 col-md-10 col-lg-10">
     <div class ="row">
       <div class = "imgCard col-sm-11 col-md-8 col-lg-7">
@@ -31,7 +31,7 @@
       <p>Votes: {{thing.votes.length}}</p>
       <a href="{{thing.linkURL}}"></a>
       <ul ng-repeat="tag in thing.tags track by $index">
-        <span ng-hide="thing.tags[$index] == null ">{{tag}}</span>
+        <span ng-hide="thing.tags[$index] == 'null' ">{{tag}}</span>
       </ul>
     <button ng-click='x.upVote(thing._id)'>UPVOTE</button>
   </div>

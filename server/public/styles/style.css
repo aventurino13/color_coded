@@ -23,21 +23,26 @@ img {
   height: auto;
   padding: 40px;
   margin: 20px;
-  border: 1px #DF5A49 solid;
+  border: 2px #DF5A49 solid;
+  background-color: #E2B297;
+  /*opacity: 0.5;*/
 }
 
 .outerCardArt {
   height: auto;
   padding: 40px;
   margin: 20px;
-  border: 1px #45B29D solid;
+  border: 2px #45B29D solid;
+  background-color: #82B2A9;
 }
 
 .outerCardDsgn {
   height: auto;
   padding: 40px;
   margin: 20px;
-  border: 1px #EFC94C solid;
+  border-right: 3px #EFC94C solid;
+  border-bottom: 3px #EFC94C solid;
+  background-color:#EFDFAC;
 }
 
 .outerCardSrch {

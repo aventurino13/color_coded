@@ -31,7 +31,7 @@
       <p>Votes: {{thing.votes.length}}</p>
       <a href="{{thing.linkURL}}"></a>
       <ul ng-repeat="tag in thing.tags track by $index">
-        <span ng-hide="thing.tags[$index] == null">{{tag}}</span>
+        <span ng-hide="thing.tags[$index] == 'null'">{{tag}}</span>
       </ul>
     <button ng-click='x.upVote(thing._id)'>UPVOTE</button>
   </div>

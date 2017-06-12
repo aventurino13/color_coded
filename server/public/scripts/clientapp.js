@@ -34,10 +34,10 @@ myApp.config(function($routeProvider, $locationProvider){
 
 myApp.run(function(editableOptions, editableThemes) {
   // set `default` theme
-  editableOptions.theme = 'bs2';
+  editableOptions.theme = 'bs3';
 
   // overwrite submit button template
-  // editableThemes['default'].submitTpl = '<button type="submit">ok</button>';
+  editableThemes['default'].submitTpl = '<button type="submit">ok</button>';
 });
 
 // myApp.run(["$templateCache", function($templateCache) {

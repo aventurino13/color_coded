@@ -13,6 +13,14 @@
 <h1>Design</h1>
 <div class="dsgnDiv col-sm-12 col-md-12 col-lg-12">
 <div ng-controller = "viewsController as x" ng-init = 'x.getDsgn()'>
+  <script type="text/ng-template" id="alert.html">
+    <div ng-transclude></div>
+  </script>
+
+  <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'success')" ng-if="show" close="closeAlert($index)"  dismiss-on-timeout="4000">{{alert.msg}}</div>
+
+
+</div>
   <div ng-repeat='thing in x.allDsgn | orderBy:"-votes.length"'  class ="container-fluid outerCardDsgn col-sm-10 col-md-10 col-lg-10">
     <div class ="row">
       <div class = "imgCard col-sm-11 col-md-8 col-lg-7">

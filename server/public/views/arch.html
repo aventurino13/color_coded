@@ -13,6 +13,14 @@
 <h1>Architecture</h1>
 <div class="archDiv col-sm-12 col-md-12 col-lg-12">
 <div ng-controller = "viewsController as x" ng-init = 'x.getArch()'>
+  <script type="text/ng-template" id="alert.html">
+    <div ng-transclude></div>
+  </script>
+
+  <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'success')" ng-if="show" close="closeAlert($index)"  >{{alert.msg}}</div>
+
+
+
   <div ng-repeat='thing in x.allArch | orderBy:"-votes.length"'  class ="container-fluid outerCardArch col-sm-10 col-md-10 col-lg-10">
     <div class ="row">
       <div class = "imgCard col-sm-11 col-md-8 col-lg-7">

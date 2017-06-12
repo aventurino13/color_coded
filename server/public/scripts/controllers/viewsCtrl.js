@@ -1,4 +1,4 @@
-myApp.controller('viewsController', function(itemService) {
+myApp.controller('viewsController', function(itemService, $scope) {
 
   var vm = this;
 
@@ -42,8 +42,23 @@ myApp.controller('viewsController', function(itemService) {
       vm.getArch();
       vm.getDsgn();
       vm.getArt();
+      vm.showAlert();
     });
   };
+  vm.showAlert = function (){
 
+  $scope.alerts = [
+    { type: 'success', msg: 'Successful Upvote!' }
+  ];
+  $scope.show = true;
+  };
+
+  $scope.addAlert = function() {
+    $scope.alerts.push({msg: 'Another alert!'});
+  };
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
 
 });
